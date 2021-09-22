@@ -8,6 +8,7 @@ target 'RubetekTest' do
   # Pods for RubetekTest
 
    pod 'Kingfisher'
+   pod 'RealmSwift', '~>10'
 
 
 end

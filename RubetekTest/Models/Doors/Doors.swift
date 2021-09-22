@@ -2,7 +2,7 @@
 //  Doors.swift
 //  RubetekTest
 //
-//  Created by Aliaksandr Dainiak on 9/22/21.
+//  Created by Darya Dainiak on 9/22/21.
 //
 
 import Foundation

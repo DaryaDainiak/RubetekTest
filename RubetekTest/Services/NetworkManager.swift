@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  RubetekTest
 //
-//  Created by Aliaksandr Dainiak on 9/21/21.
+//  Created by Darya Dainiak on 9/21/21.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getRooms(completion: @escaping (Result<DataModel, Error>) -> Void)
-    func getDoors(completion: @escaping (Result<FullData, Error>) -> Void)
+    func getDoors(completion: @escaping (Result<[Door], Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -36,7 +36,7 @@ class NetworkManager: NetworkManagerProtocol {
         }.resume()
     }
   
-    func getDoors(completion: @escaping (Result<FullData, Error>) -> Void) {
+    func getDoors(completion: @escaping (Result<[Door], Error>) -> Void) {
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/doors/"
         let components = URLComponents(string: urlString)
@@ -49,7 +49,7 @@ class NetworkManager: NetworkManagerProtocol {
             do {
                 let fullData = try JSONDecoder().decode(FullData.self, from: data)
                 
-                completion(.success(fullData))
+                completion(.success(fullData.data))
                 
             } catch(let error) {
                 completion(.failure(error))

@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  RubetekTest
 //
-//  Created by Aliaksandr Dainiak on 9/21/21.
+//  Created by Darya Dainiak on 9/21/21.
 //
 
 import UIKit
@@ -60,7 +60,7 @@ final class ViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                self.doors = data.data
+                self.doors = data
                 DispatchQueue.main.async {
                     self.cameraTableView.reloadData()
                 }
@@ -121,6 +121,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if buttonIndex == 0 {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         headerView.backgroundColor = .systemGray6
         
@@ -133,10 +134,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(label)
         
         return headerView
+        } else {
+            return UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if buttonIndex == 0 {
         return 50
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

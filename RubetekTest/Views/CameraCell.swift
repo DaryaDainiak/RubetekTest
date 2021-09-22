@@ -2,7 +2,7 @@
 //  CameraCell.swift
 //  RubetekTest
 //
-//  Created by Aliaksandr Dainiak on 9/21/21.
+//  Created by Darya Dainiak on 9/21/21.
 //
 
 import UIKit
@@ -39,6 +39,7 @@ final class CameraCell: UITableViewCell {
     
     override func prepareForReuse() {
         //TODO: -  отменить загрузку картинок , fk cancel
+        cameraView.kf.cancelDownloadTask()
     }
     
     func fill(camera: Camera) {
@@ -46,7 +47,9 @@ final class CameraCell: UITableViewCell {
         subtitleLable.isHidden = true
         icon.isHidden = true
         lock.isHidden = true
+        
         if let url = URL(string: camera.snapshot) {
+//            cameraView.kf.cancelDownloadTask()
             cameraView.kf.setImage(with: url)
         }
         favorites.isHidden = !camera.favorites

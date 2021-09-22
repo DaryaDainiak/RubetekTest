@@ -2,7 +2,7 @@
 //  Rooms.swift
 //  RubetekTest
 //
-//  Created by Aliaksandr Dainiak on 9/21/21.
+//  Created by Darya Dainiak on 9/21/21.
 //
 
 import Foundation
