@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     private let imageCell = "imageCell"
+    private let lableCell = "lableCell"
     private var rooms: [String] = []
     private var cameras: [Camera] = []
     private var doors: [Door] = []
@@ -38,7 +39,7 @@ final class ViewController: UIViewController {
         //        cameraTableView.rowHeight = UITableView.automaticDimension;
         //        cameraTableView.estimatedRowHeight = 44.0
     }
-        
+    
     private func getRooms() {
         networkManager.getRooms { [weak self] result in
             guard let self = self else { return }
@@ -54,7 +55,7 @@ final class ViewController: UIViewController {
             }
         }
     }
-        
+    
     private func getDoors() {
         networkManager.getDoors { [weak self] result in
             guard let self = self else { return }
@@ -92,8 +93,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return filteredCameras.count
             
         } else {
-            let numberOfDoors = doors.count
-            return numberOfDoors
+            return doors.count
         }
     }
     
@@ -101,19 +101,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if buttonIndex == 0 {
             return rooms.count
         } else {
-            return 0
+            return 1
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
         
         if buttonIndex == 0 {
-        cell.fill(camera: cameras[indexPath.row])
-        
-        return cell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
+            cell.fill(camera: cameras[indexPath.row])
+            
+            return cell
+        } else if doors[indexPath.row].snapshot != nil {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
+            cell.fillDoors(doors: doors[indexPath.row])
+            
+            return cell
         } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: lableCell, for: indexPath) as? LableCell else { return UITableViewCell() }
             cell.fillDoors(doors: doors[indexPath.row])
             
             return cell
@@ -122,18 +128,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if buttonIndex == 0 {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        headerView.backgroundColor = .systemGray6
-        
-        let label = UILabel()
-        label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
-        label.text = rooms[section]
-        label.font = .systemFont(ofSize: 16)
-        label.textColor = .darkGray
-        
-        headerView.addSubview(label)
-        
-        return headerView
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+            headerView.backgroundColor = .systemGray6
+            
+            let label = UILabel()
+            label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
+            label.text = rooms[section]
+            label.font = .systemFont(ofSize: 16)
+            label.textColor = .darkGray
+            
+            headerView.addSubview(label)
+            
+            return headerView
         } else {
             return UIView()
         }
@@ -141,7 +147,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if buttonIndex == 0 {
-        return 50
+            return 50
         } else {
             return 0
         }
@@ -149,9 +155,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if buttonIndex == 0 {
-            return 275
+            return 305
+        } else if doors[indexPath.row].snapshot != nil {
+            return 305
         } else {
-            return 60 //UITableView.automaticDimension
+            return 121
         }
     }
 }

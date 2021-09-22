@@ -11,7 +11,7 @@ import Kingfisher
 final class CameraCell: UITableViewCell {
 
     @IBOutlet var titleLable: UILabel!
-    @IBOutlet var subtitleLable: UILabel!
+//    @IBOutlet var subtitleLable: UILabel!
     @IBOutlet var icon: UIImageView!
     @IBOutlet var lock: UIImageView!
     @IBOutlet var cameraView: UIImageView!
@@ -38,18 +38,16 @@ final class CameraCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        //TODO: -  отменить загрузку картинок , fk cancel
         cameraView.kf.cancelDownloadTask()
     }
     
     func fill(camera: Camera) {
         titleLable.text = camera.name
-        subtitleLable.isHidden = true
+//        subtitleLable.isHidden = true
         icon.isHidden = true
         lock.isHidden = true
         
         if let url = URL(string: camera.snapshot) {
-//            cameraView.kf.cancelDownloadTask()
             cameraView.kf.setImage(with: url)
         }
         favorites.isHidden = !camera.favorites
@@ -59,7 +57,7 @@ final class CameraCell: UITableViewCell {
     
     func fillDoors(doors: Door) {
         titleLable.text = doors.name
-        subtitleLable.isHidden = true
+//        subtitleLable.isHidden = true
         icon.isHidden = true
         lock.isHidden = false
         if let url = URL(string: doors.snapshot ?? " ") {
