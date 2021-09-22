@@ -33,11 +33,7 @@ final class ViewController: UIViewController {
     
     private func setUpTableView() {
         cameraTableView.delegate = self
-        
         cameraTableView.dataSource = self
-        //
-        //        cameraTableView.rowHeight = UITableView.automaticDimension;
-        //        cameraTableView.estimatedRowHeight = 44.0
     }
     
     private func getRooms() {
@@ -72,6 +68,8 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func tapCamerasButton(_ sender: UIButton) {
+        guard buttonIndex == 1 else { return }
+        
         buttonIndex = 0
         grayUnderline.backgroundColor = UIColor.systemGray4
         blueUnderline.backgroundColor = UIColor.systemTeal
@@ -79,6 +77,8 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func tapDoorsButton(_ sender: UIButton) {
+        guard buttonIndex == 0 else { return }
+        
         buttonIndex = 1
         blueUnderline.backgroundColor = UIColor.systemGray4
         grayUnderline.backgroundColor = UIColor.systemTeal
@@ -109,17 +109,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if buttonIndex == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell
+            else
+            { return UITableViewCell() }
+            
             cell.fill(camera: cameras[indexPath.row])
             
             return cell
         } else if doors[indexPath.row].snapshot != nil {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
-            cell.fillDoors(doors: doors[indexPath.row])
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell
+            else
+            { return UITableViewCell() }
+            
+            cell.fill(doors: doors[indexPath.row])
             
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: lableCell, for: indexPath) as? LableCell else { return UITableViewCell() }
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: lableCell, for: indexPath) as? LableCell
+            else
+            { return UITableViewCell() }
+            
             cell.fillDoors(doors: doors[indexPath.row])
             
             return cell
@@ -155,12 +167,37 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if buttonIndex == 0 {
-            return 305
+            return 315
         } else if doors[indexPath.row].snapshot != nil {
             return 305
         } else {
             return 121
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dvc = DetailsViewController()
+        if buttonIndex == 0 {
+            let tappedImage = cameras[indexPath.row].snapshot
+            dvc.imageName = tappedImage
+        }
+    }
+    
+    private func handleMarkAsFavourite() {
+        print("Marked as favourite")
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Favourite") { [weak self] (action, view, completionHandler) in
+            self?.handleMarkAsFavourite()
+            completionHandler(true)
+        }
+        action.backgroundColor = .systemBlue
+        
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        
+        return configuration
     }
 }
 

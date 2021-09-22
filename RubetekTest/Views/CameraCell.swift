@@ -27,14 +27,6 @@ final class CameraCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        backView.layer.cornerRadius = 20
-//        backView.clipsToBounds = true
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -55,7 +47,7 @@ final class CameraCell: UITableViewCell {
         
     }
     
-    func fillDoors(doors: Door) {
+    func fill(doors: Door) {
         titleLable.text = doors.name
 //        subtitleLable.isHidden = true
         icon.isHidden = true

@@ -8,10 +8,10 @@
 import Foundation
 
 struct Camera: Decodable {
+    let id: Int
     let name: String
     let snapshot: String
     let room: String?
-    let id: Int
     let favorites: Bool
     let rec: Bool
 }

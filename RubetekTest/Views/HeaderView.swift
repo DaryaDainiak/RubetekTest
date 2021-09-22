@@ -8,8 +8,6 @@
 import UIKit
 
 class HeaderView: UIView {
-
-//    @IBOutlet var titleLabel: UILabel!
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()

@@ -6,24 +6,30 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet var selectedImage: UIImageView!
+    var imageName: String?
+    @IBOutlet var recView: UIView!
+    @IBOutlet var openDoorButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpRoundedCorners()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpRoundedCorners() {
+        recView.layer.cornerRadius = 7
+        recView.clipsToBounds = true
+        recView.layer.cornerRadius = 12
+        recView.clipsToBounds = true
     }
-    */
-
+    
+    private func setUpImage() {
+        if let url = URL(string: imageName ?? " ") {
+            selectedImage.kf.setImage(with: url)
+        }
+    }
 }

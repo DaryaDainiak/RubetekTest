@@ -118,8 +118,8 @@
 				80553B5E26FA255900E93D57 /* CameraCell.swift */,
 				8058C11A26FB657E00F1EC8E /* LableCell.swift */,
 				80553B4726F9EA9D00E93D57 /* ViewController.swift */,
-				8003FD5326FB11FB00E9DEED /* HeaderView.swift */,
 				8058C11326FB53DB00F1EC8E /* DetailsViewController.swift */,
+				8003FD5326FB11FB00E9DEED /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
