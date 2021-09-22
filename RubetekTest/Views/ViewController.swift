@@ -7,15 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     @IBOutlet var cameraTableView: UITableView!
-    private let imageCell = "imageCell"
+    @IBOutlet var cameraButton: UIButton!
+    @IBOutlet var doorButton: UIButton!
+    @IBOutlet var blueUnderline: UIView!
+    @IBOutlet var grayUnderline: UIView!
     
     private let networkManager: NetworkManagerProtocol = NetworkManager()
-    
+    private let imageCell = "imageCell"
     private var rooms: [String] = []
     private var cameras: [Camera] = []
+    private var doors: [Door] = []
     
     private var buttonIndex = 0
     
@@ -23,10 +27,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setUpTableView()
-        
         getRooms()
     }
-    
     
     private func setUpTableView() {
         cameraTableView.delegate = self
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
         //        cameraTableView.rowHeight = UITableView.automaticDimension;
         //        cameraTableView.estimatedRowHeight = 44.0
     }
-    
+        
     private func getRooms() {
         networkManager.getRooms { [weak self] result in
             guard let self = self else { return }
@@ -52,30 +54,33 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+        
     private func getDoors() {
-        //        networkManager.getDoors { [weak self] result in
-        //            guard let self = self else { return }
-        //            switch result {
-        //            case .succes(let data):
-        //                self.rooms = data.room
-        //                self.cameras = data.cameras
-        //                DispatchQueue.main.async {
-        //                    tableView.reload()
-        //                }
-        //            case .failure:
-        //                break
-        //            }
-        //        }
+        networkManager.getDoors { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.doors = data.data
+                DispatchQueue.main.async {
+                    self.cameraTableView.reloadData()
+                }
+            case .failure:
+                break
+            }
+        }
     }
     
-    @objc private func roomsButtonAction() {
+    @IBAction func tapCamerasButton(_ sender: UIButton) {
         buttonIndex = 0
+        grayUnderline.backgroundColor = UIColor.systemGray4
+        blueUnderline.backgroundColor = UIColor.systemTeal
         getRooms()
     }
     
-    @objc private func doorsButtonAction() {
+    @IBAction func tapDoorsButton(_ sender: UIButton) {
         buttonIndex = 1
+        blueUnderline.backgroundColor = UIColor.systemGray4
+        grayUnderline.backgroundColor = UIColor.systemTeal
         getDoors()
     }
 }
@@ -87,13 +92,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return filteredCameras.count
             
         } else {
-            return 0
+            let numberOfDoors = doors.count
+            return numberOfDoors
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if buttonIndex == 0 {
-            
             return rooms.count
         } else {
             return 0
@@ -103,15 +108,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: imageCell, for: indexPath) as? CameraCell else { return UITableViewCell() }
+        
+        if buttonIndex == 0 {
         cell.fill(camera: cameras[indexPath.row])
         
         return cell
-        
+        } else {
+            cell.fillDoors(doors: doors[indexPath.row])
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        headerView.backgroundColor = .white
+        headerView.backgroundColor = .systemGray6
         
         let label = UILabel()
         label.frame = CGRect.init(x: 20, y: 5, width: headerView.frame.width - 10, height: headerView.frame.height - 10)

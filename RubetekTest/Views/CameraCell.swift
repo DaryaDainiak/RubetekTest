@@ -13,17 +13,17 @@ final class CameraCell: UITableViewCell {
     @IBOutlet var titleLable: UILabel!
     @IBOutlet var subtitleLable: UILabel!
     @IBOutlet var icon: UIImageView!
+    @IBOutlet var lock: UIImageView!
     @IBOutlet var cameraView: UIImageView!
     @IBOutlet var rec: UIImageView!
     @IBOutlet var favorites: UIImageView!
     
-    @IBOutlet var backView: UIView!
-//    {
-//        didSet {
-//            backView.layer.cornerRadius = 20
-//            backView.clipsToBounds = true
-//        }
-//    }
+    @IBOutlet var backView: UIView! {
+        didSet {
+            backView.layer.cornerRadius = 20
+            backView.clipsToBounds = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,11 +45,25 @@ final class CameraCell: UITableViewCell {
         titleLable.text = camera.name
         subtitleLable.isHidden = true
         icon.isHidden = true
+        lock.isHidden = true
         if let url = URL(string: camera.snapshot) {
             cameraView.kf.setImage(with: url)
         }
         favorites.isHidden = !camera.favorites
         rec.isHidden = !camera.rec
         
+    }
+    
+    func fillDoors(doors: Door) {
+        titleLable.text = doors.name
+        subtitleLable.isHidden = true
+        icon.isHidden = true
+        lock.isHidden = false
+        if let url = URL(string: doors.snapshot ?? " ") {
+            cameraView.kf.setImage(with: url)
+        }
+        favorites.isHidden = true
+        rec.isHidden = true
+
     }
 }

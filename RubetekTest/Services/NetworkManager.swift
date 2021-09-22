@@ -10,6 +10,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func getRooms(completion: @escaping (Result<DataModel, Error>) -> Void)
+    func getDoors(completion: @escaping (Result<FullData, Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -35,4 +36,25 @@ class NetworkManager: NetworkManagerProtocol {
         }.resume()
     }
   
+    func getDoors(completion: @escaping (Result<FullData, Error>) -> Void) {
+        let urlString =
+            "https://cars.cprogroup.ru/api/rubetek/doors/"
+        let components = URLComponents(string: urlString)
+        guard let url = components?.url else { return }
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+
+            guard let data = data else { return }
+            do {
+                let fullData = try JSONDecoder().decode(FullData.self, from: data)
+                
+                completion(.success(fullData))
+                
+            } catch(let error) {
+                completion(.failure(error))
+                print("Error serialization json \(error)", error.localizedDescription)
+            }
+        }.resume()
+    }
 }
