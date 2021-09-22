@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8003FD5426FB11FC00E9DEED /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8003FD5326FB11FB00E9DEED /* HeaderView.swift */; };
 		80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4326F9EA9D00E93D57 /* AppDelegate.swift */; };
 		80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */; };
 		80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4726F9EA9D00E93D57 /* ViewController.swift */; };
@@ -14,9 +15,15 @@
 		80553B4D26F9EAA500E93D57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80553B4C26F9EAA500E93D57 /* Assets.xcassets */; };
 		80553B5026F9EAA500E93D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80553B4E26F9EAA500E93D57 /* LaunchScreen.storyboard */; };
 		80553B5F26FA255900E93D57 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B5E26FA255900E93D57 /* CameraCell.swift */; };
+		80553B6426FA6AD700E93D57 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B6326FA6AD700E93D57 /* Camera.swift */; };
+		80553B6826FA6B7100E93D57 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B6726FA6B7100E93D57 /* Rooms.swift */; };
+		80553B6C26FA6C8300E93D57 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B6B26FA6C8300E93D57 /* NetworkManager.swift */; };
+		C6725BD4FA49F7440BEBCBBD /* Pods_RubetekTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CF85A43A33F1EED964CE80C /* Pods-RubetekTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.release.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.release.xcconfig"; sourceTree = "<group>"; };
+		8003FD5326FB11FB00E9DEED /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		80553B4026F9EA9D00E93D57 /* RubetekTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubetekTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80553B4326F9EA9D00E93D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,11 @@
 		80553B4F26F9EAA500E93D57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80553B5126F9EAA500E93D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80553B5E26FA255900E93D57 /* CameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
+		80553B6326FA6AD700E93D57 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		80553B6726FA6B7100E93D57 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
+		80553B6B26FA6C8300E93D57 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubetekTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.debug.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +45,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6725BD4FA49F7440BEBCBBD /* Pods_RubetekTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EE116CD5E3D06838E94E38A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */,
+				2CF85A43A33F1EED964CE80C /* Pods-RubetekTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		80553B3726F9EA9D00E93D57 = {
 			isa = PBXGroup;
 			children = (
 				80553B4226F9EA9D00E93D57 /* RubetekTest */,
 				80553B4126F9EA9D00E93D57 /* Products */,
+				3EE116CD5E3D06838E94E38A /* Pods */,
+				DFB483EF0BFEB9530DCCD132 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +82,52 @@
 		80553B4226F9EA9D00E93D57 /* RubetekTest */ = {
 			isa = PBXGroup;
 			children = (
+				80553B6A26FA6C7000E93D57 /* Services */,
+				80553B6226FA6AA700E93D57 /* Views */,
+				80553B6126FA6A9A00E93D57 /* Models */,
 				80553B4326F9EA9D00E93D57 /* AppDelegate.swift */,
 				80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */,
-				80553B4726F9EA9D00E93D57 /* ViewController.swift */,
-				80553B5E26FA255900E93D57 /* CameraCell.swift */,
 				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
 				80553B4C26F9EAA500E93D57 /* Assets.xcassets */,
 				80553B4E26F9EAA500E93D57 /* LaunchScreen.storyboard */,
 				80553B5126F9EAA500E93D57 /* Info.plist */,
 			);
 			path = RubetekTest;
+			sourceTree = "<group>";
+		};
+		80553B6126FA6A9A00E93D57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80553B6326FA6AD700E93D57 /* Camera.swift */,
+				80553B6726FA6B7100E93D57 /* Rooms.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80553B6226FA6AA700E93D57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80553B5E26FA255900E93D57 /* CameraCell.swift */,
+				80553B4726F9EA9D00E93D57 /* ViewController.swift */,
+				8003FD5326FB11FB00E9DEED /* HeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80553B6A26FA6C7000E93D57 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				80553B6B26FA6C8300E93D57 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DFB483EF0BFEB9530DCCD132 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80553B5426F9EAA500E93D57 /* Build configuration list for PBXNativeTarget "RubetekTest" */;
 			buildPhases = (
+				6EA58507FA7540D50DC936A0 /* [CP] Check Pods Manifest.lock */,
 				80553B3C26F9EA9D00E93D57 /* Sources */,
 				80553B3D26F9EA9D00E93D57 /* Frameworks */,
 				80553B3E26F9EA9D00E93D57 /* Resources */,
+				A9D019A4876FAF5A72AE7025 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,15 +197,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6EA58507FA7540D50DC936A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RubetekTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9D019A4876FAF5A72AE7025 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubetekTest/Pods-RubetekTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubetekTest/Pods-RubetekTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RubetekTest/Pods-RubetekTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80553B3C26F9EA9D00E93D57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				80553B5F26FA255900E93D57 /* CameraCell.swift in Sources */,
+				80553B6426FA6AD700E93D57 /* Camera.swift in Sources */,
+				80553B6826FA6B7100E93D57 /* Rooms.swift in Sources */,
+				80553B6C26FA6C8300E93D57 /* NetworkManager.swift in Sources */,
 				80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */,
 				80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */,
 				80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */,
+				8003FD5426FB11FC00E9DEED /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +395,7 @@
 		};
 		80553B5526F9EAA500E93D57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +414,7 @@
 		};
 		80553B5626F9EAA500E93D57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CF85A43A33F1EED964CE80C /* Pods-RubetekTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
