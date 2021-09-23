@@ -10,21 +10,21 @@ import RealmSwift
 
 
 protocol NetworkManagerProtocol {
-    func getRooms(isRefresh: Bool, completion: @escaping (Result<DataModel, Error>) -> Void)
+    func getRooms(isRefresh: Bool, completion: @escaping (Result<([String], [Camera]), Error>) -> Void)
     func getDoors(isRefresh: Bool, completion: @escaping (Result<[Door], Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    func getRooms(isRefresh: Bool, completion: @escaping (Result<DataModel, Error>) -> Void) {
+    func getRooms(isRefresh: Bool, completion: @escaping (Result<([String], [Camera]), Error>) -> Void) {
         
-//        if !isRefresh {
-//            if let dataInRealm = try? RealmService.get(DataModel.self), !dataInRealm.isEmpty {
-//                let data = Array(dataInRealm)
-//                completion(.success(data))
-//            }
-//
-//            return
-//        }
+        //        if !isRefresh {
+        //            if let dataInRealm = try? RealmService.get(DataModel.self), !dataInRealm.isEmpty {
+        //                let data = Array(dataInRealm)
+        //                completion(.success(data))
+        //            }
+        //
+        //            return
+        //        }
         
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/cameras/"
@@ -33,40 +33,46 @@ class NetworkManager: NetworkManagerProtocol {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
-
+            
             guard let data = data else { return }
             do {
-//                let allData = try JSONDecoder().decode(AllData.self, from: data)
                 
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 
-
                 if let dictionary = json {
                     if let dataModelDict = dictionary["data"] as? [String: Any] {
-                        if let cameras = dataModelDict["cameras"] as? [Camera] {
-                            print("cameras = \(cameras)")
-                        } else {
-                            print("cameras = nil")
+                        var rooms: [String] = []
+                        var cameras: [Camera] = []
+                        
+                        if let camerasArray = dataModelDict["cameras"] as? [[String: Any]] {
+                            camerasArray.forEach {
+                                print($0)
+                                let camera = Camera()
+                                camera.id = $0["id"] as? Int ?? 0
+                                camera.name = $0["name"] as? String ?? ""
+                                camera.snapshot = $0["snapshot"] as? String ?? ""
+                                camera.room = $0["room"] as? String ?? ""
+                                camera.favorites = $0["favorites"] as? Bool ?? false
+                                camera.rec = $0["rec"] as? Bool ?? false
+                                cameras.append(camera)
+                            }
                         }
-                        if let rooms = dataModelDict["room"] as? [String] {
-                            print("rooms = \(rooms)")
-                        } else {
-                            print("rooms = nil")
+                        
+                        if let roomsList = dataModelDict["room"] as? [String] {
+                            rooms = roomsList
                         }
-
-//                        completion(.success(dictionary))
+                        
+                        completion(.success((rooms, cameras)))
                     }
                 }
-                
-//                completion(.success(allData.data ?? DataModel()))
-                
-            } catch(let error) {
+            }
+            catch(let error) {
                 completion(.failure(error))
                 print("Error serialization json \(error)", error.localizedDescription)
             }
         }.resume()
     }
-  
+    
     func getDoors(isRefresh: Bool, completion: @escaping (Result<[Door], Error>) -> Void) {
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/doors/"
@@ -75,7 +81,7 @@ class NetworkManager: NetworkManagerProtocol {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
-
+            
             guard let data = data else { return }
             do {
                 let fullData = try JSONDecoder().decode(FullData.self, from: data)

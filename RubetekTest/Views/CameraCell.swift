@@ -39,7 +39,7 @@ final class CameraCell: UITableViewCell {
         icon.isHidden = true
         lock.isHidden = true
         
-        guard let imageUrl = camera.snapshot else { return }
+        let imageUrl = camera.snapshot
         if let url = URL(string: imageUrl) {
             cameraView.kf.setImage(with: url)
         }

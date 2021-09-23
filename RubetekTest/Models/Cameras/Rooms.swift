@@ -26,7 +26,7 @@ import RealmSwift
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 //        self.data = try DataModel(from: decoder)
-        self.data = try values.decode(DataModel.self, forKey: .data)
+        self.data = try? values.decode(DataModel.self, forKey: .data)
         self.success = try values.decode(Bool.self, forKey: .success)
         
         super.init()
@@ -91,8 +91,8 @@ import RealmSwift
 @objcMembers final class Camera: Object, Codable {
     dynamic var id: Int = 0
     dynamic var name: String = ""
-    dynamic var snapshot: String? = nil
-    dynamic var room: String = ""
+    dynamic var snapshot: String = ""
+    dynamic var room: String? = nil
     dynamic var favorites: Bool = Bool()
     dynamic var rec: Bool = Bool()
     
@@ -111,8 +111,8 @@ import RealmSwift
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decode(Int.self, forKey: .id)
         self.name = try values.decode(String.self, forKey: .name)
-        self.snapshot = try? values.decode(String.self, forKey: .snapshot)
-        self.room = try values.decode(String.self, forKey: .room)
+        self.snapshot = try values.decode(String.self, forKey: .snapshot)
+        self.room = try? values.decode(String.self, forKey: .room)
         self.favorites = try values.decode(Bool.self, forKey: .favorites)
         self.rec = try values.decode(Bool.self, forKey: .rec)
         

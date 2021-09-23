@@ -14,23 +14,34 @@ final class ViewController: UIViewController {
     @IBOutlet var doorButton: UIButton!
     @IBOutlet var blueUnderline: UIView!
     @IBOutlet var grayUnderline: UIView!
-    
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     private let imageCell = "imageCell"
     private let lableCell = "lableCell"
     private var rooms: [String] = []
     private var cameras: [Camera] = []
     private var doors: [Door] = []
-    
     private var buttonIndex = 0
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.lightGray
+
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cameraTableView.refreshControl = refreshControl
         setUpTableView()
         getRooms()
     }
     
+    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
+        cameraTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+
     private func setUpTableView() {
         cameraTableView.delegate = self
         cameraTableView.dataSource = self
@@ -40,9 +51,9 @@ final class ViewController: UIViewController {
         networkManager.getRooms(isRefresh: isRefresh) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let data):
-                self.rooms = Array(data.room)
-                self.cameras = Array(data.cameras)
+            case .success((let rooms, let cameras)):
+                self.rooms = Array(rooms)
+                self.cameras = Array(cameras)
                 DispatchQueue.main.async {
                     self.cameraTableView.reloadData()
                 }
