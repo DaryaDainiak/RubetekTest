@@ -6,54 +6,86 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 
 
 @objcMembers final class AllData: Object, Codable {
     dynamic var success: Bool = Bool()
-    dynamic var data = DataModel()
+    dynamic var data: DataModel? = DataModel()
+    
+    dynamic var id = ObjectId.generate()
     
     enum CodingKeys: String, CodingKey {
         case data
-        case success = "success"
+        case success
     }
-    
-    override public init() {}
+        
+//    override public init() {}
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.data = try DataModel(from: decoder)
-        self.success = try values.decodeIfPresent(Bool.self, forKey: .success) ?? false
+//        self.data = try DataModel(from: decoder)
+        self.data = try values.decode(DataModel.self, forKey: .data)
+        self.success = try values.decode(Bool.self, forKey: .success)
         
         super.init()
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+//    required override init()
+//    {
+//        super.init()
+//    }
+//
+//       required init(value: Any, schema: RLMSchema)
+//       {
+//           super.init(value: value)
+//       }
+//
+//    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+//        super.init(realm: realm, schema: schema)
+//    }
 }
 
 @objcMembers final class DataModel: Object, Codable {
-    dynamic var room = List<String>()
-    dynamic var cameras = List<Camera>()
+    dynamic var room = RealmSwift.List<String>()
+    dynamic var cameras = RealmSwift.List<Camera>()
+    dynamic var id = ObjectId.generate()
     
     enum CodingKeys: String, CodingKey {
-        case cameras = "cameras"
-        case room = "room"
+        case cameras
+        case room
     }
     
     override public init() {}
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let cameraList = try values.decodeIfPresent([Camera].self, forKey: .cameras)
-        let roomList = try values.decodeIfPresent([String].self, forKey: .room)
+        let cameraList = try values.decode([Camera].self, forKey: .cameras)
+        let roomList = try values.decode([String].self, forKey: .room)
         
-        if let cameraListUnwraped = cameraList {
-            cameras.append(objectsIn: cameraListUnwraped)
-        }
-        if let roomListUnwraped = roomList  {
-            room.append(objectsIn: roomListUnwraped)
-        }
+//        if let cameraListUnwraped = cameraList {
+//            cameras.append(objectsIn: cameraListUnwraped)
+//        }
+//        if let roomListUnwraped = roomList  {
+//            room.append(objectsIn: roomListUnwraped)
+        //        }
+        let cameraListUnwraped = cameraList
+        cameras.append(objectsIn: cameraListUnwraped)
         
+        let roomListUnwraped = roomList
+        room.append(objectsIn: roomListUnwraped)
         super.init()
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
 }
 
 @objcMembers final class Camera: Object, Codable {
@@ -61,8 +93,8 @@ import RealmSwift
     dynamic var name: String = ""
     dynamic var snapshot: String? = nil
     dynamic var room: String = ""
-    dynamic var favorites: Bool = false
-    dynamic var rec: Bool = false
+    dynamic var favorites: Bool = Bool()
+    dynamic var rec: Bool = Bool()
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -77,12 +109,12 @@ import RealmSwift
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try values.decodeIfPresent(Int.self, forKey: .id) ?? 0
-        self.name = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        self.snapshot = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        self.room = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
-        self.favorites = try values.decodeIfPresent(Bool.self, forKey: .id) ?? false
-        self.rec = try values.decodeIfPresent(Bool.self, forKey: .id) ?? false
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.snapshot = try? values.decode(String.self, forKey: .snapshot)
+        self.room = try values.decode(String.self, forKey: .room)
+        self.favorites = try values.decode(Bool.self, forKey: .favorites)
+        self.rec = try values.decode(Bool.self, forKey: .rec)
         
         super.init()
     }

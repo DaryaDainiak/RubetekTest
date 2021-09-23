@@ -36,19 +36,29 @@ class NetworkManager: NetworkManagerProtocol {
 
             guard let data = data else { return }
             do {
-                let allData = try JSONDecoder().decode(AllData.self, from: data)
+//                let allData = try JSONDecoder().decode(AllData.self, from: data)
                 
-//                let json = try JSONSerialization.jsonObject(with: data, options: [])
-//
-//                if let dictionary = json as? [String: Any] {
-//                    if let dataModelDict = dictionary["data"] as? [String: Any] {
-//                        let rooms = dataModelDict["rooms"]
-//                        let cameras = dataModelDict["cameras"]
-////                        completion(.success(dataModel))
-//                    }
-//                }
+                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 
-                completion(.success(allData.data ?? DataModel()))
+
+                if let dictionary = json {
+                    if let dataModelDict = dictionary["data"] as? [String: Any] {
+                        if let cameras = dataModelDict["cameras"] as? [Camera] {
+                            print("cameras = \(cameras)")
+                        } else {
+                            print("cameras = nil")
+                        }
+                        if let rooms = dataModelDict["room"] as? [String] {
+                            print("rooms = \(rooms)")
+                        } else {
+                            print("rooms = nil")
+                        }
+
+//                        completion(.success(dictionary))
+                    }
+                }
+                
+//                completion(.success(allData.data ?? DataModel()))
                 
             } catch(let error) {
                 completion(.failure(error))
