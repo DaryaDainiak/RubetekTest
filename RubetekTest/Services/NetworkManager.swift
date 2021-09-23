@@ -6,15 +6,26 @@
 //
 
 import Foundation
+import RealmSwift
 
 
 protocol NetworkManagerProtocol {
-    func getRooms(completion: @escaping (Result<DataModel, Error>) -> Void)
-    func getDoors(completion: @escaping (Result<[Door], Error>) -> Void)
+    func getRooms(isRefresh: Bool, completion: @escaping (Result<DataModel, Error>) -> Void)
+    func getDoors(isRefresh: Bool, completion: @escaping (Result<[Door], Error>) -> Void)
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    func getRooms(completion: @escaping (Result<DataModel, Error>) -> Void) {
+    func getRooms(isRefresh: Bool, completion: @escaping (Result<DataModel, Error>) -> Void) {
+        
+//        if !isRefresh {
+//            if let dataInRealm = try? RealmService.get(DataModel.self), !dataInRealm.isEmpty {
+//                let data = Array(dataInRealm)
+//                completion(.success(data))
+//            }
+//
+//            return
+//        }
+        
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/cameras/"
         let components = URLComponents(string: urlString)
@@ -27,7 +38,17 @@ class NetworkManager: NetworkManagerProtocol {
             do {
                 let allData = try JSONDecoder().decode(AllData.self, from: data)
                 
-                completion(.success(allData.data))
+//                let json = try JSONSerialization.jsonObject(with: data, options: [])
+//
+//                if let dictionary = json as? [String: Any] {
+//                    if let dataModelDict = dictionary["data"] as? [String: Any] {
+//                        let rooms = dataModelDict["rooms"]
+//                        let cameras = dataModelDict["cameras"]
+////                        completion(.success(dataModel))
+//                    }
+//                }
+                
+                completion(.success(allData.data ?? DataModel()))
                 
             } catch(let error) {
                 completion(.failure(error))
@@ -36,7 +57,7 @@ class NetworkManager: NetworkManagerProtocol {
         }.resume()
     }
   
-    func getDoors(completion: @escaping (Result<[Door], Error>) -> Void) {
+    func getDoors(isRefresh: Bool, completion: @escaping (Result<[Door], Error>) -> Void) {
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/doors/"
         let components = URLComponents(string: urlString)

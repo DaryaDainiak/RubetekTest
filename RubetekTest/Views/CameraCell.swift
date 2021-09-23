@@ -39,7 +39,8 @@ final class CameraCell: UITableViewCell {
         icon.isHidden = true
         lock.isHidden = true
         
-        if let url = URL(string: camera.snapshot) {
+        guard let imageUrl = camera.snapshot else { return }
+        if let url = URL(string: imageUrl) {
             cameraView.kf.setImage(with: url)
         }
         favorites.isHidden = !camera.favorites

@@ -36,13 +36,13 @@ final class ViewController: UIViewController {
         cameraTableView.dataSource = self
     }
     
-    private func getRooms() {
-        networkManager.getRooms { [weak self] result in
+    private func getRooms(isRefresh: Bool = false) {
+        networkManager.getRooms(isRefresh: isRefresh) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                self.rooms = data.room
-                self.cameras = data.cameras
+                self.rooms = Array(data.room)
+                self.cameras = Array(data.cameras)
                 DispatchQueue.main.async {
                     self.cameraTableView.reloadData()
                 }
@@ -52,8 +52,8 @@ final class ViewController: UIViewController {
         }
     }
     
-    private func getDoors() {
-        networkManager.getDoors { [weak self] result in
+    private func getDoors(isRefresh: Bool = false) {
+        networkManager.getDoors(isRefresh: isRefresh) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let data):
@@ -65,6 +65,11 @@ final class ViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    func refresh() {
+        getRooms(isRefresh: true)
+        getDoors(isRefresh: true)
     }
     
     @IBAction func tapCamerasButton(_ sender: UIButton) {
