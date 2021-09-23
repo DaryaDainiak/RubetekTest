@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LableCell: UITableViewCell {
+final class LableCell: UITableViewCell {
     @IBOutlet var backView: UIView!{
         didSet {
             backView.layer.cornerRadius = 20

@@ -17,14 +17,16 @@ protocol NetworkManagerProtocol {
 class NetworkManager: NetworkManagerProtocol {
     func getRooms(isRefresh: Bool, completion: @escaping (Result<([String], [Camera]), Error>) -> Void) {
         
-        //        if !isRefresh {
-        //            if let dataInRealm = try? RealmService.get(DataModel.self), !dataInRealm.isEmpty {
-        //                let data = Array(dataInRealm)
-        //                completion(.success(data))
-        //            }
-        //
-        //            return
-        //        }
+        if !isRefresh {
+            if let dataModelRealm = try? RealmService.get(DataModel.self), !dataModelRealm.isEmpty {
+                let dataModel = Array(dataModelRealm)
+                if let cameras = dataModel.first?.cameras,
+                   let rooms = dataModel.first?.room {
+                    completion(.success((Array(rooms), Array(cameras))))
+                    return
+                }
+            }
+        }
         
         let urlString =
             "https://cars.cprogroup.ru/api/rubetek/cameras/"
@@ -46,7 +48,6 @@ class NetworkManager: NetworkManagerProtocol {
                         
                         if let camerasArray = dataModelDict["cameras"] as? [[String: Any]] {
                             camerasArray.forEach {
-                                print($0)
                                 let camera = Camera()
                                 camera.id = $0["id"] as? Int ?? 0
                                 camera.name = $0["name"] as? String ?? ""
@@ -63,6 +64,14 @@ class NetworkManager: NetworkManagerProtocol {
                         }
                         
                         completion(.success((rooms, cameras)))
+                        
+                        DispatchQueue.main.async {
+                            let dataModel = DataModel()
+                            dataModel.cameras.append(objectsIn: cameras)
+                            dataModel.room.append(objectsIn: rooms)
+                            
+                            RealmService.save(items: [dataModel])
+                        }
                     }
                 }
             }

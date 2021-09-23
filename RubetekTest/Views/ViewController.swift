@@ -9,11 +9,11 @@ import UIKit
 
 final class ViewController: UIViewController {
     
-    @IBOutlet var cameraTableView: UITableView!
-    @IBOutlet var cameraButton: UIButton!
-    @IBOutlet var doorButton: UIButton!
-    @IBOutlet var blueUnderline: UIView!
-    @IBOutlet var grayUnderline: UIView!
+    @IBOutlet private var cameraTableView: UITableView!
+    @IBOutlet private var cameraButton: UIButton!
+    @IBOutlet private var doorButton: UIButton!
+    @IBOutlet private var blueUnderline: UIView!
+    @IBOutlet private var grayUnderline: UIView!
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     private let imageCell = "imageCell"
     private let lableCell = "lableCell"
@@ -21,27 +21,39 @@ final class ViewController: UIViewController {
     private var cameras: [Camera] = []
     private var doors: [Door] = []
     private var buttonIndex = 0
+    private var imageSegueIdentifier = "toImageDetails"
+    private var segueIdentifier = "toDetails"
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         refreshControl.tintColor = UIColor.lightGray
-
+        
         return refreshControl
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavBar()
         cameraTableView.refreshControl = refreshControl
         setUpTableView()
         getRooms()
     }
     
-    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
-        cameraTableView.reloadData()
-        refreshControl.endRefreshing()
+    private func setUpNavBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.layoutIfNeeded()
     }
-
+    
+    @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
+        if buttonIndex == 0 {
+            getRooms(isRefresh: true)
+        } else {
+            getDoors(isRefresh: true)
+        }
+    }
+    
     private func setUpTableView() {
         cameraTableView.delegate = self
         cameraTableView.dataSource = self
@@ -56,6 +68,7 @@ final class ViewController: UIViewController {
                 self.cameras = Array(cameras)
                 DispatchQueue.main.async {
                     self.cameraTableView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             case .failure:
                 break
@@ -71,6 +84,7 @@ final class ViewController: UIViewController {
                 self.doors = data
                 DispatchQueue.main.async {
                     self.cameraTableView.reloadData()
+                    self.refreshControl.endRefreshing()
                 }
             case .failure:
                 break
@@ -78,12 +92,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    func refresh() {
-        getRooms(isRefresh: true)
-        getDoors(isRefresh: true)
-    }
-    
-    @IBAction func tapCamerasButton(_ sender: UIButton) {
+    @IBAction private func tapCamerasButton(_ sender: UIButton) {
         guard buttonIndex == 1 else { return }
         
         buttonIndex = 0
@@ -92,7 +101,7 @@ final class ViewController: UIViewController {
         getRooms()
     }
     
-    @IBAction func tapDoorsButton(_ sender: UIButton) {
+    @IBAction private func tapDoorsButton(_ sender: UIButton) {
         guard buttonIndex == 0 else { return }
         
         buttonIndex = 1
@@ -192,11 +201,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dvc = DetailsViewController()
+        tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard let dvc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        // сделать в низкоуровневом контролере  class func -> controller  --> override class func с конкр именем и --> если надо данными для передачи в ините
+                as? DetailsViewController else { return }
         if buttonIndex == 0 {
-            let tappedImage = cameras[indexPath.row].snapshot
-            dvc.imageName = tappedImage
+            dvc.imageName = cameras[indexPath.row].snapshot
+            dvc.titleName = cameras[indexPath.row].name
+        } else {
+            if doors[indexPath.row].snapshot != nil {
+                dvc.imageName = doors[indexPath.row].snapshot
+                dvc.titleName = doors[indexPath.row].name
+            } else {
+                dvc.titleName = doors[indexPath.row].name
+            }
         }
+        
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
     
     private func handleMarkAsFavourite() {
@@ -205,11 +227,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
-                                        title: "Favourite") { [weak self] (action, view, completionHandler) in
+                                        title: nil) { [weak self] (action, view, completionHandler) in
             self?.handleMarkAsFavourite()
             completionHandler(true)
         }
-        action.backgroundColor = .systemBlue
+        action.backgroundColor = .systemGray6
+        action.image = UIImage(systemName: "star.fill")
         
         let configuration = UISwipeActionsConfiguration(actions: [action])
         

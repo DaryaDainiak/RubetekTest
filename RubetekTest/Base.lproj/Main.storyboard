@@ -62,28 +62,23 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" rowHeight="323" id="QZd-4J-uf8" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" id="QZd-4J-uf8" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="323"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QZd-4J-uf8" id="rla-V8-Mve" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDO-81-vWY" userLabel="backView">
-                                                    <rect key="frame" x="20" y="5" width="378" height="300"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDO-81-vWY" userLabel="backView">
+                                                    <rect key="frame" x="16" y="12" width="382" height="299"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUg-41-p0h" userLabel="cameraview">
-                                                            <rect key="frame" x="0.0" y="-5" width="378" height="230"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMe-pM-xDp">
-                                                                    <rect key="frame" x="-4" y="5" width="382" height="220"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMe-pM-xDp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="225"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="225" id="2Pu-P2-Sw9"/>
+                                                                <constraint firstAttribute="width" constant="382" id="IdT-sd-cqj"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YBc-vv-kr3">
                                                             <rect key="frame" x="334" y="249" width="28" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,20 +113,33 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="sMe-pM-xDp" secondAttribute="trailing" id="0pG-aC-aEz"/>
+                                                        <constraint firstItem="sMe-pM-xDp" firstAttribute="top" secondItem="cDO-81-vWY" secondAttribute="top" id="Jmu-WV-uxq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="sMe-pM-xDp" secondAttribute="bottom" constant="74" id="dcf-cW-oVO"/>
+                                                        <constraint firstItem="sMe-pM-xDp" firstAttribute="leading" secondItem="cDO-81-vWY" secondAttribute="leading" id="wvt-vJ-phe"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="cDO-81-vWY" firstAttribute="top" secondItem="rla-V8-Mve" secondAttribute="top" constant="12" id="APw-vZ-TIt"/>
+                                                <constraint firstItem="cDO-81-vWY" firstAttribute="leading" secondItem="rla-V8-Mve" secondAttribute="leading" constant="16" id="Alc-hp-ASx"/>
+                                                <constraint firstAttribute="trailing" secondItem="cDO-81-vWY" secondAttribute="trailing" constant="16" id="cge-IU-YFh"/>
+                                                <constraint firstAttribute="bottom" secondItem="cDO-81-vWY" secondAttribute="bottom" constant="12" id="ncl-g6-cVh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <connections>
                                             <outlet property="backView" destination="cDO-81-vWY" id="bXj-Ic-Wov"/>
                                             <outlet property="cameraView" destination="sMe-pM-xDp" id="yUn-LW-Hjq"/>
+                                            <outlet property="cameraViewHeightConstraint" destination="2Pu-P2-Sw9" id="Vt5-o3-lct"/>
+                                            <outlet property="cameraWidthConstraint" destination="IdT-sd-cqj" id="dje-bA-phN"/>
                                             <outlet property="favorites" destination="NhB-TT-G6s" id="wWq-Fg-exb"/>
                                             <outlet property="icon" destination="YBc-vv-kr3" id="MqQ-cb-x6t"/>
                                             <outlet property="lock" destination="cQx-fr-4WC" id="GvT-WN-rGh"/>
                                             <outlet property="rec" destination="vqT-wY-riR" id="bhA-k0-z2R"/>
                                             <outlet property="titleLable" destination="VmJ-4M-eII" id="VnH-G6-97P"/>
-                                            <segue destination="sJB-Cc-Zx7" kind="show" id="gP5-PO-JnI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lableCell" rowHeight="121" id="67S-49-7yj" customClass="LableCell" customModule="RubetekTest" customModuleProvider="target">
@@ -170,7 +178,6 @@
                                             <outlet property="backView" destination="WW8-pc-Aui" id="teA-xL-ZpQ"/>
                                             <outlet property="lockImage" destination="TcY-Az-yRh" id="sWQ-5f-9j0"/>
                                             <outlet property="titleLable" destination="zrQ-4k-0gI" id="K8H-1z-hQQ"/>
-                                            <segue destination="sJB-Cc-Zx7" kind="show" id="Jiq-H5-ACX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -234,13 +241,13 @@
         <!--Details View Controller-->
         <scene sceneID="zkW-fV-cku">
             <objects>
-                <viewController id="sJB-Cc-Zx7" customClass="DetailsViewController" customModule="RubetekTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="sJB-Cc-Zx7" customClass="DetailsViewController" customModule="RubetekTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SxI-Wh-1cO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-aW-aTP">
-                                <rect key="frame" x="0.0" y="141.5" width="414" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-aW-aTP">
+                                <rect key="frame" x="0.0" y="73" width="414" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="sIs-xL-emc"/>
                                 </constraints>
@@ -257,14 +264,14 @@
                                     <imageReference key="image" image="key.fill" catalog="system" symbolScale="large"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Домофон общедомовой" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUb-IY-ZE9">
-                                <rect key="frame" x="89" y="98" width="236" height="24.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUb-IY-ZE9">
+                                <rect key="frame" x="207" y="54" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.dashed" catalog="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ej6-ft-KoJ">
-                                <rect key="frame" x="368" y="348.5" width="30" height="24"/>
+                                <rect key="frame" x="368" y="280" width="30" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="mqh-Dj-o9V"/>
@@ -273,7 +280,7 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w1S-ej-p0W">
-                                <rect key="frame" x="344" y="152" width="30" height="23"/>
+                                <rect key="frame" x="344" y="83.5" width="30" height="23"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ByO-BM-Uhy"/>
@@ -282,13 +289,13 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEW-oc-m1c">
-                                <rect key="frame" x="379" y="153.5" width="19" height="20"/>
+                                <rect key="frame" x="379" y="85" width="19" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-4y-n8H">
-                                <rect key="frame" x="16" y="361.5" width="14" height="14"/>
+                                <rect key="frame" x="16" y="293" width="14" height="14"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="14" id="ZoK-4R-xun"/>
@@ -296,7 +303,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прямая трансляция" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBN-Au-lPf">
-                                <rect key="frame" x="35" y="361.5" width="117" height="14.5"/>
+                                <rect key="frame" x="35" y="293" width="117" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -330,9 +337,15 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Y1C-01-0EE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="eye" destination="w1S-ej-p0W" id="KiG-2n-Dqf"/>
+                        <outlet property="numberLable" destination="qEW-oc-m1c" id="RNN-oq-LXt"/>
                         <outlet property="openDoorButton" destination="p9h-2W-B5I" id="mwC-wz-HJH"/>
                         <outlet property="recView" destination="YbJ-4y-n8H" id="DP4-yF-Jlx"/>
+                        <outlet property="redDot" destination="YbJ-4y-n8H" id="Pyo-iQ-xEO"/>
                         <outlet property="selectedImage" destination="3tD-aW-aTP" id="Edy-Yf-V1G"/>
+                        <outlet property="shot" destination="ej6-ft-KoJ" id="YQn-9K-PbV"/>
+                        <outlet property="textLable" destination="dBN-Au-lPf" id="Eal-2b-WE0"/>
+                        <outlet property="titleLable" destination="TUb-IY-ZE9" id="f11-fa-frb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3i-7A-4GP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -359,9 +372,6 @@
             <point key="canvasLocation" x="-146.37681159420291" y="93.75"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Jiq-H5-ACX"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>

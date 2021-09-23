@@ -17,7 +17,6 @@ final class CameraCell: UITableViewCell {
     @IBOutlet var cameraView: UIImageView!
     @IBOutlet var rec: UIImageView!
     @IBOutlet var favorites: UIImageView!
-    
     @IBOutlet var backView: UIView! {
         didSet {
             backView.layer.cornerRadius = 20
@@ -25,6 +24,8 @@ final class CameraCell: UITableViewCell {
         }
     }
     
+    @IBOutlet var cameraWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var cameraViewHeightConstraint: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -45,7 +46,8 @@ final class CameraCell: UITableViewCell {
         }
         favorites.isHidden = !camera.favorites
         rec.isHidden = !camera.rec
-        
+        cameraWidthConstraint.constant = UIScreen.main.bounds.width - 32
+        cameraViewHeightConstraint.constant = cameraWidthConstraint.constant / 1.7
     }
     
     func fill(doors: Door) {

@@ -12,7 +12,7 @@ import RealmSwift
 
 @objcMembers final class AllData: Object, Codable {
     dynamic var success: Bool = Bool()
-    dynamic var data: DataModel? = DataModel()
+    dynamic var data: DataModel? = nil
     
     dynamic var id = ObjectId.generate()
     
@@ -21,7 +21,7 @@ import RealmSwift
         case success
     }
         
-//    override public init() {}
+    override public init() {}
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -35,20 +35,6 @@ import RealmSwift
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-//    required override init()
-//    {
-//        super.init()
-//    }
-//
-//       required init(value: Any, schema: RLMSchema)
-//       {
-//           super.init(value: value)
-//       }
-//
-//    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-//        super.init(realm: realm, schema: schema)
-//    }
 }
 
 @objcMembers final class DataModel: Object, Codable {
@@ -67,13 +53,7 @@ import RealmSwift
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let cameraList = try values.decode([Camera].self, forKey: .cameras)
         let roomList = try values.decode([String].self, forKey: .room)
-        
-//        if let cameraListUnwraped = cameraList {
-//            cameras.append(objectsIn: cameraListUnwraped)
-//        }
-//        if let roomListUnwraped = roomList  {
-//            room.append(objectsIn: roomListUnwraped)
-        //        }
+
         let cameraListUnwraped = cameraList
         cameras.append(objectsIn: cameraListUnwraped)
         
