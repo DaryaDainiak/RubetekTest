@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8003FD5426FB11FC00E9DEED /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8003FD5326FB11FB00E9DEED /* HeaderView.swift */; };
 		80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4326F9EA9D00E93D57 /* AppDelegate.swift */; };
 		80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */; };
 		80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4726F9EA9D00E93D57 /* ViewController.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		2CF85A43A33F1EED964CE80C /* Pods-RubetekTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.release.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.release.xcconfig"; sourceTree = "<group>"; };
-		8003FD5326FB11FB00E9DEED /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		80553B4026F9EA9D00E93D57 /* RubetekTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubetekTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80553B4326F9EA9D00E93D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,15 +86,10 @@
 		80553B4226F9EA9D00E93D57 /* RubetekTest */ = {
 			isa = PBXGroup;
 			children = (
-				80553B6A26FA6C7000E93D57 /* Services */,
-				80553B6226FA6AA700E93D57 /* Views */,
-				80553B6126FA6A9A00E93D57 /* Models */,
-				80553B4326F9EA9D00E93D57 /* AppDelegate.swift */,
-				80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */,
-				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
-				80553B4C26F9EAA500E93D57 /* Assets.xcassets */,
-				80553B4E26F9EAA500E93D57 /* LaunchScreen.storyboard */,
-				80553B5126F9EAA500E93D57 /* Info.plist */,
+				80D19E0926FDE2C7002783B2 /* Main */,
+				80D19E0A26FDE2D1002783B2 /* Modules */,
+				80D19E0B26FDE34E002783B2 /* System */,
+				80D19E0D26FDE51F002783B2 /* Support */,
 			);
 			path = RubetekTest;
 			sourceTree = "<group>";
@@ -113,11 +106,9 @@
 		80553B6226FA6AA700E93D57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
 				80553B5E26FA255900E93D57 /* CameraCell.swift */,
 				8058C11A26FB657E00F1EC8E /* LableCell.swift */,
-				80553B4726F9EA9D00E93D57 /* ViewController.swift */,
-				8058C11326FB53DB00F1EC8E /* DetailsViewController.swift */,
-				8003FD5326FB11FB00E9DEED /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +136,52 @@
 				8058C10726FB377000F1EC8E /* Doors.swift */,
 			);
 			path = Doors;
+			sourceTree = "<group>";
+		};
+		80D19E0926FDE2C7002783B2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				80553B6A26FA6C7000E93D57 /* Services */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		80D19E0A26FDE2D1002783B2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				80D19E0C26FDE4F1002783B2 /* Controllers */,
+				80553B6126FA6A9A00E93D57 /* Models */,
+				80553B6226FA6AA700E93D57 /* Views */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		80D19E0B26FDE34E002783B2 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				80553B4326F9EA9D00E93D57 /* AppDelegate.swift */,
+				80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		80D19E0C26FDE4F1002783B2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				80553B4726F9EA9D00E93D57 /* ViewController.swift */,
+				8058C11326FB53DB00F1EC8E /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		80D19E0D26FDE51F002783B2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				80553B4C26F9EAA500E93D57 /* Assets.xcassets */,
+				80553B4E26F9EAA500E93D57 /* LaunchScreen.storyboard */,
+				80553B5126F9EAA500E93D57 /* Info.plist */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		DFB483EF0BFEB9530DCCD132 /* Frameworks */ = {
@@ -278,7 +315,6 @@
 				80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */,
 				80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */,
 				80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */,
-				8003FD5426FB11FC00E9DEED /* HeaderView.swift in Sources */,
 				8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

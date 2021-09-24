@@ -216,25 +216,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="E6r-73-iqG" userLabel="HeaderView">
-                    <rect key="frame" x="0.0" y="0.0" width="411" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gX-VT-C1n">
-                            <rect key="frame" x="20" y="15" width="371" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="WU4-Kg-oPq"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstItem="5gX-VT-C1n" firstAttribute="centerY" secondItem="WU4-Kg-oPq" secondAttribute="centerY" id="Aoy-wD-zdc"/>
-                        <constraint firstItem="WU4-Kg-oPq" firstAttribute="trailing" secondItem="5gX-VT-C1n" secondAttribute="trailing" constant="20" id="XSO-mG-MH7"/>
-                        <constraint firstItem="5gX-VT-C1n" firstAttribute="leading" secondItem="WU4-Kg-oPq" secondAttribute="leading" constant="20" id="iPX-zp-4wR"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="93.75"/>
         </scene>
@@ -380,9 +361,6 @@
         <image name="shield" catalog="system" width="128" height="121"/>
         <image name="square.dashed" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
