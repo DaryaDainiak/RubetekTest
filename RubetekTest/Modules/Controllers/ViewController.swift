@@ -57,6 +57,10 @@ final class ViewController: UIViewController {
     private func setUpTableView() {
         cameraTableView.delegate = self
         cameraTableView.dataSource = self
+        cameraTableView.register(UINib(nibName: "CameraCellView", bundle: nil), forCellReuseIdentifier: "imageCell")
+//        instansesTableView.register(UINib(nibName: "DoorTableViewCell", bundle: nil), forCellReuseIdentifier: "doorCell")
+//        instansesTableView.register(UINib(nibName: "SmallDoorTableViewCell", bundle: nil), forCellReuseIdentifier: "smallDoorCell")
+
     }
     
     private func getRooms(isRefresh: Bool = false) {
@@ -222,7 +226,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func handleMarkAsFavourite() {
-        print("Marked as favourite")
+        print("favourite tapped")
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -232,7 +236,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             completionHandler(true)
         }
         action.backgroundColor = .systemGray6
-        action.image = UIImage(systemName: "star.fill")
+        
+        let favouriteImage = UIImage(systemName: "star")?.withTintColor(.systemYellow, renderingMode: .alwaysOriginal)
+        action.image = favouriteImage
         
         let configuration = UISwipeActionsConfiguration(actions: [action])
         

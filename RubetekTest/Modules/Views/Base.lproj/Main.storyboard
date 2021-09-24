@@ -62,88 +62,8 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageCell" id="QZd-4J-uf8" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="323"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QZd-4J-uf8" id="rla-V8-Mve" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="323"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDO-81-vWY" userLabel="backView">
-                                                    <rect key="frame" x="16" y="12" width="382" height="299"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMe-pM-xDp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="225"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="225" id="2Pu-P2-Sw9"/>
-                                                                <constraint firstAttribute="width" constant="382" id="IdT-sd-cqj"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shield" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YBc-vv-kr3">
-                                                            <rect key="frame" x="334" y="249" width="28" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemGrayColor"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="record.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vqT-wY-riR" userLabel="rec">
-                                                            <rect key="frame" x="16" y="18.5" width="28" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemRedColor"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NhB-TT-G6s" userLabel="favorite">
-                                                            <rect key="frame" x="338" y="18" width="28" height="23.5"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemYellowColor"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQx-fr-4WC">
-                                                            <rect key="frame" x="329" y="247" width="38" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemTealColor"/>
-                                                            <imageReference key="image" image="lock" catalog="system" symbolScale="medium"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="thin"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmJ-4M-eII">
-                                                            <rect key="frame" x="8" y="249" width="241" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="sMe-pM-xDp" secondAttribute="trailing" id="0pG-aC-aEz"/>
-                                                        <constraint firstItem="sMe-pM-xDp" firstAttribute="top" secondItem="cDO-81-vWY" secondAttribute="top" id="Jmu-WV-uxq"/>
-                                                        <constraint firstAttribute="bottom" secondItem="sMe-pM-xDp" secondAttribute="bottom" constant="74" id="dcf-cW-oVO"/>
-                                                        <constraint firstItem="sMe-pM-xDp" firstAttribute="leading" secondItem="cDO-81-vWY" secondAttribute="leading" id="wvt-vJ-phe"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="cDO-81-vWY" firstAttribute="top" secondItem="rla-V8-Mve" secondAttribute="top" constant="12" id="APw-vZ-TIt"/>
-                                                <constraint firstItem="cDO-81-vWY" firstAttribute="leading" secondItem="rla-V8-Mve" secondAttribute="leading" constant="16" id="Alc-hp-ASx"/>
-                                                <constraint firstAttribute="trailing" secondItem="cDO-81-vWY" secondAttribute="trailing" constant="16" id="cge-IU-YFh"/>
-                                                <constraint firstAttribute="bottom" secondItem="cDO-81-vWY" secondAttribute="bottom" constant="12" id="ncl-g6-cVh"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <connections>
-                                            <outlet property="backView" destination="cDO-81-vWY" id="bXj-Ic-Wov"/>
-                                            <outlet property="cameraView" destination="sMe-pM-xDp" id="yUn-LW-Hjq"/>
-                                            <outlet property="cameraViewHeightConstraint" destination="2Pu-P2-Sw9" id="Vt5-o3-lct"/>
-                                            <outlet property="cameraWidthConstraint" destination="IdT-sd-cqj" id="dje-bA-phN"/>
-                                            <outlet property="favorites" destination="NhB-TT-G6s" id="wWq-Fg-exb"/>
-                                            <outlet property="icon" destination="YBc-vv-kr3" id="MqQ-cb-x6t"/>
-                                            <outlet property="lock" destination="cQx-fr-4WC" id="GvT-WN-rGh"/>
-                                            <outlet property="rec" destination="vqT-wY-riR" id="bhA-k0-z2R"/>
-                                            <outlet property="titleLable" destination="VmJ-4M-eII" id="VnH-G6-97P"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lableCell" rowHeight="121" id="67S-49-7yj" customClass="LableCell" customModule="RubetekTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="351" width="414" height="121"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="67S-49-7yj" id="of0-Xz-XYs" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
@@ -357,10 +277,7 @@
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>
         <image name="lock" catalog="system" width="128" height="128"/>
-        <image name="record.circle" catalog="system" width="128" height="121"/>
-        <image name="shield" catalog="system" width="128" height="121"/>
         <image name="square.dashed" catalog="system" width="128" height="114"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -378,9 +295,6 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
