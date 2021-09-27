@@ -167,31 +167,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BAC377BE-F034-4ABB-BB72-FE7AA429CE89"
-            shouldBeEnabled = "No"
+            uuid = "02E4958D-2225-4D85-9FB8-F5A3722B16BF"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RubetekTest/Modules/Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "ViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11BBF52B-EA59-46EF-8CB1-A22BB7BCF79D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RubetekTest/Modules/Controllers/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "getRooms(isRefresh:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -199,15 +183,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "78A5F70E-F957-4CF3-8F2B-C3629A88A547"
-            shouldBeEnabled = "No"
+            uuid = "4189CB1B-B7F5-4495-B319-D45780F7F893"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RubetekTest/Modules/Controllers/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getRooms(isRefresh:)"
             landmarkType = "7">
          </BreakpointContent>

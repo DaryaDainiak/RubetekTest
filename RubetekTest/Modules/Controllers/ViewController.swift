@@ -63,38 +63,21 @@ final class ViewController: UIViewController {
 //        instansesTableView.register(UINib(nibName: "SmallDoorTableViewCell", bundle: nil), forCellReuseIdentifier: "smallDoorCell")
 
     }
-    
-//    private func getRooms(isRefresh: Bool = false) {
-//        networkManager.getRooms(isRefresh: isRefresh) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success((let rooms, let cameras)):
-//                self.rooms = Array(rooms)
-//                self.cameras = Array(cameras)
-//                DispatchQueue.main.async {
-//                    self.cameraTableView.reloadData()
-//                    self.refreshControl.endRefreshing()
-//                }
-//            case .failure:
-//                break
-//            }
-//        }
-//    }
-    
+            
     private func getRooms(isRefresh: Bool = false) {
-        NetworkService.request(api: Api.getCameras) { [weak self] (result: Result<AllData, Error>) in
-            switch result {
-            case .success(let allData):
-                print(allData)
-                self?.cameras = allData.data.cameras
-                self?.rooms = allData.data.room
-                DispatchQueue.main.async {
-                    self?.cameraTableView.reloadData()
-                    self?.refreshControl.endRefreshing()
-                }
-            case .failure(let error):
-                print(error)
-            }
+        let allData = AllData.getData(isRefresh: isRefresh)
+        guard let rooms = allData?.data.room,
+              let cameras = allData?.data.cameras
+              else {
+            showAlert()
+            return
+        }
+        
+        self.rooms = rooms
+        self.cameras = cameras
+        DispatchQueue.main.async {
+            self.cameraTableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -112,6 +95,13 @@ final class ViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "Ошибка", message: "Ошибка сервиса", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction private func tapCamerasButton(_ sender: UIButton) {
