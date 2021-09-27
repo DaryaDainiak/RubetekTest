@@ -44,7 +44,7 @@ enum Api {
 }
 
 class NetworkService {
-    class func request<T: Codable>(api: Api, completion: @escaping (Result<[String: [T]], Error>) -> Void) {
+    class func request<T: Codable>(api: Api, completion: @escaping (Result<T, Error>) -> Void) {
         var components = URLComponents()
         components.scheme = api.scheme
         components.host = api.host
@@ -63,7 +63,7 @@ class NetworkService {
             }
             guard response != nil , let data = data else { return }
             
-            let responseObject = try! JSONDecoder().decode([String: [T]].self, from: data)
+            let responseObject = try! JSONDecoder().decode(T.self, from: data)
                        DispatchQueue.main.async {
                            completion(.success(responseObject))
                        }

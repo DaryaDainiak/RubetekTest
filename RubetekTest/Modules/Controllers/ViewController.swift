@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
     @IBOutlet private var blueUnderline: UIView!
     @IBOutlet private var grayUnderline: UIView!
     private let networkManager: NetworkManagerProtocol = NetworkManager()
+    private let networkService: NetworkService = NetworkService()
     private let imageCell = "imageCell"
     private let lableCell = "lableCell"
     private var rooms: [String] = []
@@ -63,19 +64,36 @@ final class ViewController: UIViewController {
 
     }
     
+//    private func getRooms(isRefresh: Bool = false) {
+//        networkManager.getRooms(isRefresh: isRefresh) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success((let rooms, let cameras)):
+//                self.rooms = Array(rooms)
+//                self.cameras = Array(cameras)
+//                DispatchQueue.main.async {
+//                    self.cameraTableView.reloadData()
+//                    self.refreshControl.endRefreshing()
+//                }
+//            case .failure:
+//                break
+//            }
+//        }
+//    }
+    
     private func getRooms(isRefresh: Bool = false) {
-        networkManager.getRooms(isRefresh: isRefresh) { [weak self] result in
-            guard let self = self else { return }
+        NetworkService.request(api: Api.getCameras) { [weak self] (result: Result<AllData, Error>) in
             switch result {
-            case .success((let rooms, let cameras)):
-                self.rooms = Array(rooms)
-                self.cameras = Array(cameras)
+            case .success(let allData):
+                print(allData)
+                self?.cameras = allData.data.cameras
+                self?.rooms = allData.data.room
                 DispatchQueue.main.async {
-                    self.cameraTableView.reloadData()
-                    self.refreshControl.endRefreshing()
+                    self?.cameraTableView.reloadData()
+                    self?.refreshControl.endRefreshing()
                 }
-            case .failure:
-                break
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -90,8 +108,8 @@ final class ViewController: UIViewController {
                     self.cameraTableView.reloadData()
                     self.refreshControl.endRefreshing()
                 }
-            case .failure:
-                break
+            case .failure(let error):
+                print(error)
             }
         }
     }

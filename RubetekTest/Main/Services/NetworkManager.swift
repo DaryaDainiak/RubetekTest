@@ -18,11 +18,12 @@ class NetworkManager: NetworkManagerProtocol {
     func getRooms(isRefresh: Bool, completion: @escaping (Result<([String], [Camera]), Error>) -> Void) {
         
         if !isRefresh {
-            if let dataModelRealm = try? RealmService.get(DataModel.self), !dataModelRealm.isEmpty {
+            if let dataModelRealm = try? RealmService.get(DataModelRealm.self), !dataModelRealm.isEmpty {
                 let dataModel = Array(dataModelRealm)
                 if let cameras = dataModel.first?.cameras,
                    let rooms = dataModel.first?.room {
-                    completion(.success((Array(rooms), Array(cameras))))
+                    
+                    completion(.success((Array(rooms), Array(cameras).map {Camera(from: $0) } )))
                     return
                 }
             }
@@ -39,41 +40,17 @@ class NetworkManager: NetworkManagerProtocol {
             guard let data = data else { return }
             do {
                 
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                
-                if let dictionary = json {
-                    if let dataModelDict = dictionary["data"] as? [String: Any] {
-                        var rooms: [String] = []
-                        var cameras: [Camera] = []
+                let dataModel = try JSONDecoder().decode(AllData.self, from: data).data
                         
-                        if let camerasArray = dataModelDict["cameras"] as? [[String: Any]] {
-                            camerasArray.forEach {
-                                let camera = Camera()
-                                camera.id = $0["id"] as? Int ?? 0
-                                camera.name = $0["name"] as? String ?? ""
-                                camera.snapshot = $0["snapshot"] as? String ?? ""
-                                camera.room = $0["room"] as? String ?? ""
-                                camera.favorites = $0["favorites"] as? Bool ?? false
-                                camera.rec = $0["rec"] as? Bool ?? false
-                                cameras.append(camera)
-                            }
-                        }
-                        
-                        if let roomsList = dataModelDict["room"] as? [String] {
-                            rooms = roomsList
-                        }
-                        
-                        completion(.success((rooms, cameras)))
+                completion(.success((dataModel.room, dataModel.cameras)))
                         
                         DispatchQueue.main.async {
-                            let dataModel = DataModel()
-                            dataModel.cameras.append(objectsIn: cameras)
-                            dataModel.room.append(objectsIn: rooms)
-                            
-                            RealmService.save(items: [dataModel])
+                            let dataModelRealm = DataModelRealm(rooms: dataModel.room, cameras: dataModel.cameras)
+
+                            RealmService.save(items: [dataModelRealm])
                         }
-                    }
-                }
+//                    }
+//                }
             }
             catch(let error) {
                 completion(.failure(error))

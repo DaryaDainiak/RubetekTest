@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8007F47126FE1B6D00C2BAEF /* CameraCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */; };
+		8007F4742701A35300C2BAEF /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F4732701A35300C2BAEF /* Rooms.swift */; };
+		8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F47A2701CB1D00C2BAEF /* DoorsRealm.swift */; };
 		80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4326F9EA9D00E93D57 /* AppDelegate.swift */; };
 		80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */; };
 		80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4726F9EA9D00E93D57 /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		2CF85A43A33F1EED964CE80C /* Pods-RubetekTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.release.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.release.xcconfig"; sourceTree = "<group>"; };
 		8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCellView.xib; sourceTree = "<group>"; };
+		8007F4732701A35300C2BAEF /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
+		8007F47A2701CB1D00C2BAEF /* DoorsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRealm.swift; sourceTree = "<group>"; };
 		80553B4026F9EA9D00E93D57 /* RubetekTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubetekTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80553B4326F9EA9D00E93D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				80553B6726FA6B7100E93D57 /* RoomsRealm.swift */,
+				8007F4732701A35300C2BAEF /* Rooms.swift */,
 			);
 			path = Cameras;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8058C10726FB377000F1EC8E /* Doors.swift */,
+				8007F47A2701CB1D00C2BAEF /* DoorsRealm.swift */,
 			);
 			path = Doors;
 			sourceTree = "<group>";
@@ -313,8 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
 				8058C10826FB377000F1EC8E /* Doors.swift in Sources */,
 				80553B5F26FA255900E93D57 /* CameraCell.swift in Sources */,
+				8007F4742701A35300C2BAEF /* Rooms.swift in Sources */,
 				8058C11B26FB657E00F1EC8E /* LableCell.swift in Sources */,
 				8058C11426FB53DB00F1EC8E /* DetailsViewController.swift in Sources */,
 				80553B6826FA6B7100E93D57 /* RoomsRealm.swift in Sources */,
