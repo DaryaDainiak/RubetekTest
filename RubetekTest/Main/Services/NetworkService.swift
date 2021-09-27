@@ -8,41 +8,6 @@
 
 import Foundation
 
-enum Api {
-    case getCameras
-    case getDoors
-    
-    var scheme: String {
-        switch self {
-        case .getCameras, .getDoors:
-            return "https"
-        }
-    }
-    
-    var host: String {
-        switch self {
-        case .getCameras, .getDoors:
-            return "cars.cprogroup.ru"
-        }
-    }
-    
-    var path: String {
-        switch self {
-        case .getCameras:
-            return "/api/rubetek/cameras/"
-        case .getDoors:
-            return "/api/rubetek/doors/"
-        }
-    }
-    
-    var method: String {
-        switch self {
-        case .getCameras, .getDoors:
-            return "GET"
-        }
-    }
-}
-
 class NetworkService {
     class func request<T: Codable>(api: Api, completion: @escaping (Result<T, Error>) -> Void) {
         var components = URLComponents()
@@ -64,11 +29,11 @@ class NetworkService {
             guard response != nil , let data = data else { return }
             
             let responseObject = try! JSONDecoder().decode(T.self, from: data)
-                       DispatchQueue.main.async {
-                           completion(.success(responseObject))
-                       }
-                   }
-                   dataTask.resume()
+            DispatchQueue.main.async {
+                completion(.success(responseObject))
+            }
         }
+        dataTask.resume()
     }
+}
 

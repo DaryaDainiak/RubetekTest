@@ -10,6 +10,7 @@
 		8007F47126FE1B6D00C2BAEF /* CameraCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */; };
 		8007F4742701A35300C2BAEF /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F4732701A35300C2BAEF /* Rooms.swift */; };
 		8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F47A2701CB1D00C2BAEF /* DoorsRealm.swift */; };
+		8007F47E2701DF5700C2BAEF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8007F47D2701DF5700C2BAEF /* Api.swift */; };
 		80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4326F9EA9D00E93D57 /* AppDelegate.swift */; };
 		80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */; };
 		80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B4726F9EA9D00E93D57 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraCellView.xib; sourceTree = "<group>"; };
 		8007F4732701A35300C2BAEF /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
 		8007F47A2701CB1D00C2BAEF /* DoorsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRealm.swift; sourceTree = "<group>"; };
+		8007F47D2701DF5700C2BAEF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		80553B4026F9EA9D00E93D57 /* RubetekTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubetekTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80553B4326F9EA9D00E93D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80553B4526F9EA9D00E93D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		80553B6126FA6A9A00E93D57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8007F47D2701DF5700C2BAEF /* Api.swift */,
 				8058C10526FB363100F1EC8E /* Cameras */,
 				8058C10626FB364200F1EC8E /* Doors */,
 			);
@@ -135,8 +138,8 @@
 		8058C10526FB363100F1EC8E /* Cameras */ = {
 			isa = PBXGroup;
 			children = (
-				80553B6726FA6B7100E93D57 /* RoomsRealm.swift */,
 				8007F4732701A35300C2BAEF /* Rooms.swift */,
+				80553B6726FA6B7100E93D57 /* RoomsRealm.swift */,
 			);
 			path = Cameras;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */,
 				80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */,
 				80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */,
+				8007F47E2701DF5700C2BAEF /* Api.swift in Sources */,
 				8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
