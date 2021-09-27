@@ -11,36 +11,32 @@ struct FullData: Codable {
     let success: Bool
     let data: [Door]
     
-    static func getData(isRefresh: Bool = false) -> FullData {
-        var fullData: FullData
+    static func getData(isRefresh: Bool = false) -> [Door] {
+        var doors: [Door] = []
         
         if !isRefresh {
             if let doorRealm = try? RealmService.get(DoorRealm.self), !doorRealm.isEmpty {
-                let doorList = Array(doorRealm) {
-                    let doorArray = Array(doorList).map {
-                        Door(from: $0)
-                    }
-                    
-                    fullData = FullData(success: true, data: doorArray)
-                    
-                    return с
-                }
+                let doorRealmArray: [DoorRealm] = Array(doorRealm)
+                let doorsList: [Door] = doorRealmArray.map { Door(from: $0)}
+                doors = doorsList
+                
+                return doors
             }
         }
         NetworkService.request(api: Api.getDoors) { (result: Result<FullData, Error>) in
             switch result {
-            case .success(let data):
-                fullData = data
+            case .success(let fullData):
+                doors = fullData.data
                 DispatchQueue.main.async {
-                    let doorsRealm = DoorRealm()
-
-                    RealmService.save(items: [dataModelRealm])
-                }
-            case .failure(_):
-                fullData = nil
+                    let doorsRealm = fullData.data.map { DoorRealm(from: $0)}
+                    
+                    RealmService.save(items: doorsRealm)
+                }            case .failure(_):
+                doors = []
             }
         }
-        return fullData
+        
+        return doors
     }
 }
 
@@ -50,5 +46,17 @@ struct Door: Codable {
     let snapshot: String?
     let room: String?
     let favorites: Bool
+}
+
+extension Door {
+    init(from model: DoorRealm) {
+        self.init(
+            id: model.id,
+            name: model.name,
+            snapshot: model.snapshot,
+            room: model.room,
+            favorites: model.favorites
+        )
+    }
 }
 

@@ -61,46 +61,6 @@
                                 <rect key="frame" x="0.0" y="160" width="414" height="702"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lableCell" rowHeight="121" id="67S-49-7yj" customClass="LableCell" customModule="RubetekTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="121"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="67S-49-7yj" id="of0-Xz-XYs" customClass="CameraCell" customModule="RubetekTest" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WW8-pc-Aui" userLabel="backView">
-                                                    <rect key="frame" x="20" y="8" width="378" height="105"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcY-Az-yRh">
-                                                            <rect key="frame" x="325" y="39" width="38" height="23"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="tintColor" systemColor="systemTealColor"/>
-                                                            <imageReference key="image" image="lock" catalog="system" symbolScale="medium"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="thin"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrQ-4k-0gI">
-                                                            <rect key="frame" x="14" y="42" width="322" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                        <connections>
-                                            <outlet property="backView" destination="WW8-pc-Aui" id="teA-xL-ZpQ"/>
-                                            <outlet property="lockImage" destination="TcY-Az-yRh" id="sWQ-5f-9j0"/>
-                                            <outlet property="titleLable" destination="zrQ-4k-0gI" id="K8H-1z-hQQ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -241,8 +201,7 @@
                         <outlet property="eye" destination="w1S-ej-p0W" id="KiG-2n-Dqf"/>
                         <outlet property="numberLable" destination="qEW-oc-m1c" id="RNN-oq-LXt"/>
                         <outlet property="openDoorButton" destination="p9h-2W-B5I" id="mwC-wz-HJH"/>
-                        <outlet property="recView" destination="YbJ-4y-n8H" id="DP4-yF-Jlx"/>
-                        <outlet property="redDot" destination="YbJ-4y-n8H" id="Pyo-iQ-xEO"/>
+                        <outlet property="redDot" destination="YbJ-4y-n8H" id="DOp-Xg-O1a"/>
                         <outlet property="selectedImage" destination="3tD-aW-aTP" id="Edy-Yf-V1G"/>
                         <outlet property="shot" destination="ej6-ft-KoJ" id="YQn-9K-PbV"/>
                         <outlet property="textLable" destination="dBN-Au-lPf" id="Eal-2b-WE0"/>
@@ -276,7 +235,6 @@
     <resources>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>
-        <image name="lock" catalog="system" width="128" height="128"/>
         <image name="square.dashed" catalog="system" width="128" height="114"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

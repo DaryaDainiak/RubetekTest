@@ -23,7 +23,7 @@ final class CameraCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cameraView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        cameraView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 
     }
     

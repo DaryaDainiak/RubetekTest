@@ -12,7 +12,7 @@ final class DetailsViewController: UIViewController {
     
     @IBOutlet private var titleLable: UILabel!
     @IBOutlet private var selectedImage: UIImageView!
-    @IBOutlet private var recView: UIView!
+//    @IBOutlet private var recView: UIView!
     @IBOutlet private var openDoorButton: UIButton!
     @IBOutlet private var numberLable: UILabel!
     @IBOutlet private var eye: UIImageView!
@@ -35,8 +35,8 @@ final class DetailsViewController: UIViewController {
     }
     
     private func setUpRoundedCorners() {
-        recView.layer.cornerRadius = 7
-        recView.layer.masksToBounds = true
+        redDot.layer.cornerRadius = 7
+        redDot.layer.masksToBounds = true
         openDoorButton.layer.cornerRadius = 10
         openDoorButton.clipsToBounds = true
     }
@@ -49,7 +49,7 @@ final class DetailsViewController: UIViewController {
     
     private func hideSubviews() {
         selectedImage.isHidden = true
-        recView.isHidden = true
+//        recView.isHidden = true
         eye.isHidden = true
         numberLable.isHidden = true
         redDot.isHidden = true

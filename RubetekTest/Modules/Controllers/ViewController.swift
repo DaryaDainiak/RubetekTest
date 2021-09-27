@@ -22,8 +22,6 @@ final class ViewController: UIViewController {
     private var cameras: [Camera] = []
     private var doors: [Door] = []
     private var buttonIndex = 0
-    private var imageSegueIdentifier = "toImageDetails"
-    private var segueIdentifier = "toDetails"
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -58,17 +56,19 @@ final class ViewController: UIViewController {
     private func setUpTableView() {
         cameraTableView.delegate = self
         cameraTableView.dataSource = self
-        cameraTableView.register(UINib(nibName: "CameraCellView", bundle: nil), forCellReuseIdentifier: "imageCell")
-//        instansesTableView.register(UINib(nibName: "DoorTableViewCell", bundle: nil), forCellReuseIdentifier: "doorCell")
-//        instansesTableView.register(UINib(nibName: "SmallDoorTableViewCell", bundle: nil), forCellReuseIdentifier: "smallDoorCell")
+        cameraTableView.register(UINib(nibName: "CameraCellView", bundle: nil), forCellReuseIdentifier: imageCell)
+        cameraTableView.register(UINib(nibName: "LableCellView", bundle: nil), forCellReuseIdentifier: lableCell)
 
+        //        instansesTableView.register(UINib(nibName: "DoorTableViewCell", bundle: nil), forCellReuseIdentifier: "doorCell")
+        //        instansesTableView.register(UINib(nibName: "SmallDoorTableViewCell", bundle: nil), forCellReuseIdentifier: "smallDoorCell")
+        
     }
-            
+    
     private func getRooms(isRefresh: Bool = false) {
         let allData = AllData.getData(isRefresh: isRefresh)
         guard let rooms = allData?.data.room,
               let cameras = allData?.data.cameras
-              else {
+        else {
             showAlert()
             return
         }
@@ -82,20 +82,30 @@ final class ViewController: UIViewController {
     }
     
     private func getDoors(isRefresh: Bool = false) {
-        networkManager.getDoors(isRefresh: isRefresh) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                self.doors = data
-                DispatchQueue.main.async {
-                    self.cameraTableView.reloadData()
-                    self.refreshControl.endRefreshing()
-                }
-            case .failure(let error):
-                print(error)
-            }
+        let doorsData = FullData.getData(isRefresh: isRefresh)
+        
+        self.doors = doorsData
+        DispatchQueue.main.async {
+            self.cameraTableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
+    
+    //    private func getDoors(isRefresh: Bool = false) {
+    //        networkManager.getDoors(isRefresh: isRefresh) { [weak self] result in
+    //            guard let self = self else { return }
+    //            switch result {
+    //            case .success(let data):
+    //                self.doors = data
+    //                DispatchQueue.main.async {
+    //                    self.cameraTableView.reloadData()
+    //                    self.refreshControl.endRefreshing()
+    //                }
+    //            case .failure(let error):
+    //                print(error)
+    //            }
+    //        }
+    //    }
     
     private func showAlert() {
         let alert = UIAlertController(title: "Ошибка", message: "Ошибка сервиса", preferredStyle: .alert)
@@ -216,7 +226,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let dvc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
-        // сделать в низкоуровневом контролере  class func -> controller  --> override class func с конкр именем и --> если надо данными для передачи в ините
+                // сделать в низкоуровневом контролере  class func -> controller  --> override class func с конкр именем и --> если надо данными для передачи в ините
                 as? DetailsViewController else { return }
         if buttonIndex == 0 {
             dvc.imageName = cameras[indexPath.row].snapshot
