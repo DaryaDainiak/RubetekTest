@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController, Storyboarded {
     
     @IBOutlet private var titleLable: UILabel!
     @IBOutlet private var selectedImage: UIImageView!

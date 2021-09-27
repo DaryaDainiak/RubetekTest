@@ -17,15 +17,21 @@
 		80553B4B26F9EA9D00E93D57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80553B4926F9EA9D00E93D57 /* Main.storyboard */; };
 		80553B4D26F9EAA500E93D57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80553B4C26F9EAA500E93D57 /* Assets.xcassets */; };
 		80553B5026F9EAA500E93D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80553B4E26F9EAA500E93D57 /* LaunchScreen.storyboard */; };
-		80553B5F26FA255900E93D57 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B5E26FA255900E93D57 /* CameraCell.swift */; };
+		80553B5F26FA255900E93D57 /* CameraCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B5E26FA255900E93D57 /* CameraCellView.swift */; };
 		80553B6826FA6B7100E93D57 /* RoomsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B6726FA6B7100E93D57 /* RoomsRealm.swift */; };
 		80553B6C26FA6C8300E93D57 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80553B6B26FA6C8300E93D57 /* NetworkManager.swift */; };
 		8058C10826FB377000F1EC8E /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C10726FB377000F1EC8E /* Doors.swift */; };
 		8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C11026FB4E0400F1EC8E /* RealmService.swift */; };
 		8058C11426FB53DB00F1EC8E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C11326FB53DB00F1EC8E /* DetailsViewController.swift */; };
-		8058C11B26FB657E00F1EC8E /* LableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C11A26FB657E00F1EC8E /* LableCell.swift */; };
+		8058C11B26FB657E00F1EC8E /* LableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C11A26FB657E00F1EC8E /* LableCellView.swift */; };
 		80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D19E1226FE0717002783B2 /* NetworkService.swift */; };
 		80D665842702124A00EA8560 /* LableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D665832702124A00EA8560 /* LableCellView.xib */; };
+		80D6658D270236F100EA8560 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6658C270236F100EA8560 /* Reusable.swift */; };
+		80D665902702370200EA8560 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6658F2702370200EA8560 /* NibLoadable.swift */; };
+		80D665932702371A00EA8560 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665922702371A00EA8560 /* TableViewDataSource.swift */; };
+		80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665972702383200EA8560 /* UIView+Autolayout.swift */; };
+		80D665A52702507A00EA8560 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665A42702507A00EA8560 /* Storyboarded.swift */; };
+		80D665B12702626C00EA8560 /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */; };
 		C6725BD4FA49F7440BEBCBBD /* Pods_RubetekTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,15 +49,21 @@
 		80553B4C26F9EAA500E93D57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80553B4F26F9EAA500E93D57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80553B5126F9EAA500E93D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80553B5E26FA255900E93D57 /* CameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
+		80553B5E26FA255900E93D57 /* CameraCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCellView.swift; sourceTree = "<group>"; };
 		80553B6726FA6B7100E93D57 /* RoomsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRealm.swift; sourceTree = "<group>"; };
 		80553B6B26FA6C8300E93D57 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8058C10726FB377000F1EC8E /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
 		8058C11026FB4E0400F1EC8E /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		8058C11326FB53DB00F1EC8E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		8058C11A26FB657E00F1EC8E /* LableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LableCell.swift; sourceTree = "<group>"; };
+		8058C11A26FB657E00F1EC8E /* LableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LableCellView.swift; sourceTree = "<group>"; };
 		80D19E1226FE0717002783B2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		80D665832702124A00EA8560 /* LableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LableCellView.xib; sourceTree = "<group>"; };
+		80D6658C270236F100EA8560 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		80D6658F2702370200EA8560 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		80D665922702371A00EA8560 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		80D665972702383200EA8560 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
+		80D665A42702507A00EA8560 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubetekTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.debug.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,8 +134,8 @@
 				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
 				8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */,
 				80D665832702124A00EA8560 /* LableCellView.xib */,
-				80553B5E26FA255900E93D57 /* CameraCell.swift */,
-				8058C11A26FB657E00F1EC8E /* LableCell.swift */,
+				80553B5E26FA255900E93D57 /* CameraCellView.swift */,
+				8058C11A26FB657E00F1EC8E /* LableCellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +171,9 @@
 		80D19E0926FDE2C7002783B2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				80D665A72702565200EA8560 /* UIComponents */,
+				80D665962702380B00EA8560 /* Extensions */,
+				80D66588270236CD00EA8560 /* Common */,
 				80553B6A26FA6C7000E93D57 /* Services */,
 			);
 			path = Main;
@@ -200,6 +215,33 @@
 				80553B5126F9EAA500E93D57 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		80D66588270236CD00EA8560 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				80D6658C270236F100EA8560 /* Reusable.swift */,
+				80D6658F2702370200EA8560 /* NibLoadable.swift */,
+				80D665922702371A00EA8560 /* TableViewDataSource.swift */,
+				80D665A42702507A00EA8560 /* Storyboarded.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		80D665962702380B00EA8560 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80D665972702383200EA8560 /* UIView+Autolayout.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		80D665A72702565200EA8560 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		DFB483EF0BFEB9530DCCD132 /* Frameworks */ = {
@@ -326,17 +368,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D665932702371A00EA8560 /* TableViewDataSource.swift in Sources */,
+				80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */,
+				80D665902702370200EA8560 /* NibLoadable.swift in Sources */,
 				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
+				80D665B12702626C00EA8560 /* UnderlineSegmentedControl.swift in Sources */,
 				8058C10826FB377000F1EC8E /* Doors.swift in Sources */,
-				80553B5F26FA255900E93D57 /* CameraCell.swift in Sources */,
+				80553B5F26FA255900E93D57 /* CameraCellView.swift in Sources */,
 				8007F4742701A35300C2BAEF /* Rooms.swift in Sources */,
-				8058C11B26FB657E00F1EC8E /* LableCell.swift in Sources */,
+				80D665A52702507A00EA8560 /* Storyboarded.swift in Sources */,
+				8058C11B26FB657E00F1EC8E /* LableCellView.swift in Sources */,
 				8058C11426FB53DB00F1EC8E /* DetailsViewController.swift in Sources */,
 				80553B6826FA6B7100E93D57 /* RoomsRealm.swift in Sources */,
 				80553B6C26FA6C8300E93D57 /* NetworkManager.swift in Sources */,
 				80553B4826F9EA9D00E93D57 /* ViewController.swift in Sources */,
 				80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */,
 				80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */,
+				80D6658D270236F100EA8560 /* Reusable.swift in Sources */,
 				80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */,
 				8007F47E2701DF5700C2BAEF /* Api.swift in Sources */,
 				8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */,

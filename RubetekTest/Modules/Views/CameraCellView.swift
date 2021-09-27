@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class CameraCell: UITableViewCell {
+final class CameraCellView: UITableViewCell {
 
     @IBOutlet var titleLable: UILabel!
 //    @IBOutlet var icon: UIImageView!
@@ -20,10 +20,10 @@ final class CameraCell: UITableViewCell {
 //    @IBOutlet var cameraWidthConstraint: NSLayoutConstraint!
 //    @IBOutlet var cameraViewHeightConstraint: NSLayoutConstraint!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        cameraView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        cameraView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 
     }
     
@@ -31,7 +31,7 @@ final class CameraCell: UITableViewCell {
         cameraView.kf.cancelDownloadTask()
     }
     
-    func fill(camera: Camera) {
+    func configure(with camera: Camera) {
         titleLable.text = camera.name
 //        icon.isHidden = true
 //        lock.isHidden = true
@@ -46,15 +46,15 @@ final class CameraCell: UITableViewCell {
 //        cameraViewHeightConstraint.constant = cameraWidthConstraint.constant / 1.7
     }
     
-    func fill(doors: Door) {
-        titleLable.text = doors.name
-//        icon.isHidden = true
-//        lock.isHidden = false
-        if let url = URL(string: doors.snapshot ?? " ") {
-            cameraView.kf.setImage(with: url)
-        }
-//        favorites.isHidden = true
-//        rec.isHidden = true
-
-    }
+//    func configure(with doors: Door) {
+//        titleLable.text = doors.name
+////        icon.isHidden = true
+////        lock.isHidden = false
+//        if let url = URL(string: doors.snapshot ?? " ") {
+//            cameraView.kf.setImage(with: url)
+//        }
+////        favorites.isHidden = true
+////        rec.isHidden = true
+//
+//    }
 }
