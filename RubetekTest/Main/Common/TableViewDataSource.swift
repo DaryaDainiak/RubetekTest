@@ -98,7 +98,6 @@ open class TableViewDataSource:
         didSet {
             tableView?.delegate = self
             tableView?.dataSource = self
-
         }
     }
     
@@ -109,7 +108,6 @@ open class TableViewDataSource:
             }
         }
     }
-    
     
     // MARK: - Initializers
     
@@ -124,7 +122,6 @@ open class TableViewDataSource:
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
     }
-    
     
     // MARK:- UITableViewDataSource
     
@@ -141,7 +138,9 @@ open class TableViewDataSource:
     ) -> UITableViewCell {
         let item = items[indexPath.row]
         let itemType = type(of: item)
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: itemType.reuseID) as? ConfigurableCell & UITableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: itemType.reuseID)
+                as? ConfigurableCell & UITableViewCell
         else {
             tableView.register(itemType.cellType, forCellReuseIdentifier: itemType.reuseID)
             return self.tableView(tableView, cellForRowAt: indexPath)

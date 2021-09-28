@@ -18,19 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8IB-ns-ngL">
-                                <rect key="frame" x="0.0" y="148" width="414" height="714"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="743"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-ma-JQW" customClass="UnderlineSegmentedControl" customModule="RubetekTest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="rmW-6t-2QW"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="88" width="414" height="32"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <segments>
-                                    <segment title="First"/>
+                                    <segment title="Камеры"/>
                                     <segment title="Двери"/>
                                 </segments>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <connections>
                                     <action selector="tapSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="VMI-yP-YwF"/>
                                 </connections>
@@ -43,7 +42,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8IB-ns-ngL" secondAttribute="bottom" id="3yU-Pg-Jlv"/>
                             <constraint firstItem="gcD-ma-JQW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4yx-29-fjP"/>
                             <constraint firstItem="gcD-ma-JQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZPM-se-4Ag"/>
-                            <constraint firstItem="8IB-ns-ngL" firstAttribute="top" secondItem="gcD-ma-JQW" secondAttribute="bottom" constant="10" id="oZ1-rz-Uzu"/>
+                            <constraint firstItem="8IB-ns-ngL" firstAttribute="top" secondItem="gcD-ma-JQW" secondAttribute="bottom" id="oZ1-rz-Uzu"/>
                             <constraint firstItem="gcD-ma-JQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t8N-LW-pri"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8IB-ns-ngL" secondAttribute="trailing" id="wEA-1O-cPA"/>
                         </constraints>
@@ -208,6 +207,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

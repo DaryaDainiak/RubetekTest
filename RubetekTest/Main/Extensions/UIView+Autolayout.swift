@@ -26,11 +26,9 @@ extension UIView {
                 bottomAnchor.constraint(
                     equalTo: view.bottomAnchor
                 ),
-//                .withPriority(UILayoutPriority(rawValue: 999)),
                 trailingAnchor.constraint(
                     equalTo: view.trailingAnchor
                 )
-//                .withPriority(UILayoutPriority(rawValue: 999))
             ]
         )
     }

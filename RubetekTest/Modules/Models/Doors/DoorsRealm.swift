@@ -26,7 +26,6 @@ import RealmSwift
     }
     
     override public init() {}
-
 }
 
 @objcMembers final class DoorRealm: Object {

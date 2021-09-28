@@ -25,14 +25,10 @@ final class CameraCellView: UITableViewCell {
             backView.isUserInteractionEnabled = true
         }
     }
-//    @IBOutlet var cameraWidthConstraint: NSLayoutConstraint!
-//    @IBOutlet var cameraViewHeightConstraint: NSLayoutConstraint!
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         cameraView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-
     }
     
     override func prepareForReuse() {
@@ -50,8 +46,6 @@ final class CameraCellView: UITableViewCell {
         }
 //        favorites.isHidden = !camera.favorites
 //        rec.isHidden = !camera.rec
-//        cameraWidthConstraint.constant = UIScreen.main.bounds.width - 32
-//        cameraViewHeightConstraint.constant = cameraWidthConstraint.constant / 1.7
     }
     
     func configure(with doors: Door) {

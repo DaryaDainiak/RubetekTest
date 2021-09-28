@@ -9,34 +9,6 @@ import Foundation
 import Realm
 import RealmSwift
 
-
-//@objcMembers final class AllDataRealm: Object {
-//    dynamic var success: Bool = Bool()
-//    dynamic var data: DataModelRealm? = nil
-//
-//    dynamic var id = ObjectId.generate()
-//
-//    enum CodingKeys: String, CodingKey {
-//        case data
-//        case success
-//    }
-//
-//    override public init() {}
-//
-////    required init(from decoder: Decoder) throws {
-////        let values = try decoder.container(keyedBy: CodingKeys.self)
-//////        self.data = try DataModel(from: decoder)
-////        self.data = try? values.decode(DataModelRealm.self, forKey: .data)
-////        self.success = try values.decode(Bool.self, forKey: .success)
-////
-////        super.init()
-////    }
-//
-//    override static func primaryKey() -> String? {
-//        return "id"
-//    }
-//}
-
 @objcMembers final class DataModelRealm: Object {
     dynamic var room = RealmSwift.List<String>()
     dynamic var cameras = RealmSwift.List<CameraRealm>()
@@ -54,23 +26,9 @@ import RealmSwift
     
     override public init() {}
     
-    //    required init(from decoder: Decoder) throws {
-    //        let values = try decoder.container(keyedBy: CodingKeys.self)
-    //        let cameraList = try values.decode([CameraRealm].self, forKey: .cameras)
-    //        let roomList = try values.decode([String].self, forKey: .room)
-    //
-    //        let cameraListUnwraped = cameraList
-    //        cameras.append(objectsIn: cameraListUnwraped)
-    //
-    //        let roomListUnwraped = roomList
-    //        room.append(objectsIn: roomListUnwraped)
-    //        super.init()
-    //    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
-    
 }
 
 @objcMembers final class CameraRealm: Object {
@@ -100,18 +58,6 @@ import RealmSwift
     }
     
     override public init() {}
-    
-    //    required init(from decoder: Decoder) throws {
-    //        let values = try decoder.container(keyedBy: CodingKeys.self)
-    //        self.id = try values.decode(Int.self, forKey: .id)
-    //        self.name = try values.decode(String.self, forKey: .name)
-    //        self.snapshot = try values.decode(String.self, forKey: .snapshot)
-    //        self.room = try? values.decode(String.self, forKey: .room)
-    //        self.favorites = try values.decode(Bool.self, forKey: .favorites)
-    //        self.rec = try values.decode(Bool.self, forKey: .rec)
-    //
-    //        super.init()
-    //    }
     
     override static func primaryKey() -> String? {
         return "id"
