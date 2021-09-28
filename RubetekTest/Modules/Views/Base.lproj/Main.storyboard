@@ -17,82 +17,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFh-2A-Xe6">
-                                <rect key="frame" x="0.0" y="88" width="207" height="70"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="M1I-wj-fO7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Камеры">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapCamerasButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QiO-jF-sP7"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-d1-YJD">
-                                <rect key="frame" x="0.0" y="158" width="207" height="2"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="207" id="Tl9-qJ-UR6"/>
-                                    <constraint firstAttribute="height" constant="2" id="gk0-hd-AxX"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JR3-bD-hVc">
-                                <rect key="frame" x="207" y="158" width="207" height="2"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="jsy-fX-Ypv"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dH-4H-FEe">
-                                <rect key="frame" x="207" y="88" width="207" height="70"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Двери">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapDoorsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xPL-Re-Hpf"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8IB-ns-ngL">
-                                <rect key="frame" x="0.0" y="160" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="714"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="sectionIndexBackgroundColor" systemColor="systemGray5Color"/>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-ma-JQW" customClass="UnderlineSegmentedControl" customModule="RubetekTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="rmW-6t-2QW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Двери"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tapSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="VMI-yP-YwF"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="8IB-ns-ngL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1qZ-cD-AUF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8IB-ns-ngL" secondAttribute="bottom" id="3yU-Pg-Jlv"/>
-                            <constraint firstItem="OkW-d1-YJD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BC2-da-tsH"/>
-                            <constraint firstItem="4dH-4H-FEe" firstAttribute="leading" secondItem="fFh-2A-Xe6" secondAttribute="trailing" id="FoM-Rh-oxS"/>
-                            <constraint firstItem="4dH-4H-FEe" firstAttribute="bottom" secondItem="fFh-2A-Xe6" secondAttribute="bottom" id="HL8-Uc-Ne3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JR3-bD-hVc" secondAttribute="trailing" id="I93-Dl-HHg"/>
-                            <constraint firstItem="8IB-ns-ngL" firstAttribute="top" secondItem="OkW-d1-YJD" secondAttribute="bottom" id="MiS-bA-SjI"/>
-                            <constraint firstItem="OkW-d1-YJD" firstAttribute="top" secondItem="fFh-2A-Xe6" secondAttribute="bottom" id="NEa-FD-wWd"/>
-                            <constraint firstItem="fFh-2A-Xe6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RQH-t2-TMD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4dH-4H-FEe" secondAttribute="trailing" id="d5l-V7-aCz"/>
-                            <constraint firstItem="fFh-2A-Xe6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="igj-ru-EhI"/>
-                            <constraint firstItem="4dH-4H-FEe" firstAttribute="width" secondItem="fFh-2A-Xe6" secondAttribute="width" id="lbB-ll-y0W"/>
-                            <constraint firstItem="JR3-bD-hVc" firstAttribute="width" secondItem="fFh-2A-Xe6" secondAttribute="width" id="pyo-nH-1QU"/>
-                            <constraint firstItem="4dH-4H-FEe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="s2b-Oo-GfA"/>
+                            <constraint firstItem="gcD-ma-JQW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4yx-29-fjP"/>
+                            <constraint firstItem="gcD-ma-JQW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZPM-se-4Ag"/>
+                            <constraint firstItem="8IB-ns-ngL" firstAttribute="top" secondItem="gcD-ma-JQW" secondAttribute="bottom" constant="10" id="oZ1-rz-Uzu"/>
+                            <constraint firstItem="gcD-ma-JQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t8N-LW-pri"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8IB-ns-ngL" secondAttribute="trailing" id="wEA-1O-cPA"/>
-                            <constraint firstItem="JR3-bD-hVc" firstAttribute="firstBaseline" secondItem="OkW-d1-YJD" secondAttribute="firstBaseline" id="xyc-CU-nDL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Мой дом" id="WOI-zj-A32"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueUnderline" destination="OkW-d1-YJD" id="jAh-MZ-jM7"/>
-                        <outlet property="cameraButton" destination="fFh-2A-Xe6" id="Bph-OP-083"/>
                         <outlet property="cameraTableView" destination="8IB-ns-ngL" id="FAg-T0-cGE"/>
-                        <outlet property="doorButton" destination="4dH-4H-FEe" id="8hg-TM-MMi"/>
-                        <outlet property="grayUnderline" destination="JR3-bD-hVc" id="9dq-jx-nDE"/>
+                        <outlet property="customSegmentedControl" destination="gcD-ma-JQW" id="CMV-c4-r7V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -236,9 +197,6 @@
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>
         <image name="square.dashed" catalog="system" width="128" height="114"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -250,9 +208,6 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -13,8 +13,8 @@ extension CameraCellView: ConfigurableView & NibLoadable & SelfCreatingView {
 
 extension Camera: ReusableCellItem {
     public static var cellType: AnyClass? {
-            return GenericTableViewCell<CameraCellView>.self
-        }
+        return GenericTableViewCell<CameraCellView>.self
+    }
 }
 
 extension LableCellView: ConfigurableView & NibLoadable & SelfCreatingView {
@@ -23,13 +23,17 @@ extension LableCellView: ConfigurableView & NibLoadable & SelfCreatingView {
 
 extension Door: ReusableCellItem {
     public static var cellType: AnyClass? {
-            return GenericTableViewCell<LableCellView>.self
-        }
+        return GenericTableViewCell<LableCellView>.self
+    }
 }
 
 
 final class ViewController: UIViewController {
     
+    
+    @IBOutlet private var customSegmentedControl: UnderlineSegmentedControl!
+    private var segmentArray = ["Камеры", "Двери"]
+
     @IBOutlet private var cameraTableView: UITableView!
     @IBOutlet private var cameraButton: UIButton!
     @IBOutlet private var doorButton: UIButton!
@@ -37,12 +41,12 @@ final class ViewController: UIViewController {
     @IBOutlet private var grayUnderline: UIView!
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     private let networkService: NetworkService = NetworkService()
-//    private let imageCell = "CameraCellView"
-//    private let lableCell = "LableCellView"
-//    private var rooms: [String] = []
-//    private var cameras: [Camera] = []
-//    private var doors: [Door] = []
-    private var buttonIndex = 0
+    //    private let imageCell = "CameraCellView"
+    //    private let lableCell = "LableCellView"
+    //    private var rooms: [String] = []
+    //    private var cameras: [Camera] = []
+    //    private var doors: [Door] = []
+//    private var buttonIndex = 0
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -59,6 +63,7 @@ final class ViewController: UIViewController {
         setUpNavBar()
         cameraTableView.refreshControl = refreshControl
         setUpTableView()
+        setUpSegmentedControl()
         getRooms()
     }
     
@@ -69,7 +74,7 @@ final class ViewController: UIViewController {
     }
     
     @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
-        if buttonIndex == 0 {
+        if customSegmentedControl.selectedSegmentIndex == 0 {
             getRooms(isRefresh: true)
         } else {
             getDoors(isRefresh: true)
@@ -84,9 +89,6 @@ final class ViewController: UIViewController {
         //        cameraTableView.dataSource = self
         //        cameraTableView.register(UINib(nibName: "CameraCellView", bundle: nil), forCellReuseIdentifier: imageCell)
         //        cameraTableView.register(UINib(nibName: "LableCellView", bundle: nil), forCellReuseIdentifier: lableCell)
-        
-        //        instansesTableView.register(UINib(nibName: "DoorTableViewCell", bundle: nil), forCellReuseIdentifier: "doorCell")
-        //        instansesTableView.register(UINib(nibName: "SmallDoorTableViewCell", bundle: nil), forCellReuseIdentifier: "smallDoorCell")
     }
     
     private func getRooms(isRefresh: Bool = false) {
@@ -99,8 +101,6 @@ final class ViewController: UIViewController {
                 self?.showAlert(error: error)
             }
         }
-        
-        
         //        self.rooms = rooms
         //        self.cameras = cameras
         //        DispatchQueue.main.async {
@@ -120,11 +120,11 @@ final class ViewController: UIViewController {
             }
         }
         
-//        self.doors = doors
-//        DispatchQueue.main.async {
-//            self.cameraTableView.reloadData()
-//            self.refreshControl.endRefreshing()
-//        }
+        //        self.doors = doors
+        //        DispatchQueue.main.async {
+        //            self.cameraTableView.reloadData()
+        //            self.refreshControl.endRefreshing()
+        //        }
     }
     
     private func showAlert(error: Error? = nil) {
@@ -134,22 +134,19 @@ final class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction private func tapCamerasButton(_ sender: UIButton) {
-        guard buttonIndex == 1 else { return }
-        
-        buttonIndex = 0
-        grayUnderline.backgroundColor = UIColor.systemGray4
-        blueUnderline.backgroundColor = UIColor.systemTeal
-        getRooms()
+    private func setUpSegmentedControl() {
+        customSegmentedControl.addUnderlineForSelectedSegment()
+        customSegmentedControl.selectedSegmentIndex = 0
     }
     
-    @IBAction private func tapDoorsButton(_ sender: UIButton) {
-        guard buttonIndex == 0 else { return }
-        
-        buttonIndex = 1
-        blueUnderline.backgroundColor = UIColor.systemGray4
-        grayUnderline.backgroundColor = UIColor.systemTeal
-        getDoors()
+    @IBAction private func tapSegment(_ sender: Any) {
+        customSegmentedControl.changeUnderlinePosition()
+        let segmentIndex = customSegmentedControl.selectedSegmentIndex
+        if segmentIndex == 0 {
+            getRooms()
+        } else {
+            getDoors()
+        }
     }
 }
 
@@ -224,6 +221,8 @@ final class ViewController: UIViewController {
 //        }
 //    }
 //
+
+
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        if buttonIndex == 0 {
 //            return 50

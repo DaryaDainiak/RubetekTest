@@ -31,8 +31,8 @@
 		80D665932702371A00EA8560 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665922702371A00EA8560 /* TableViewDataSource.swift */; };
 		80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665972702383200EA8560 /* UIView+Autolayout.swift */; };
 		80D665A52702507A00EA8560 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665A42702507A00EA8560 /* Storyboarded.swift */; };
-		80D665B12702626C00EA8560 /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */; };
 		80D665B62702DB1600EA8560 /* CameraTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665B52702DB1600EA8560 /* CameraTableViewDataSource.swift */; };
+		80D665C72703229400EA8560 /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */; };
 		C6725BD4FA49F7440BEBCBBD /* Pods_RubetekTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +64,8 @@
 		80D665922702371A00EA8560 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		80D665972702383200EA8560 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		80D665A42702507A00EA8560 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		80D665B52702DB1600EA8560 /* CameraTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewDataSource.swift; sourceTree = "<group>"; };
+		80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubetekTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.debug.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,7 +242,7 @@
 		80D665A72702565200EA8560 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				80D665B02702626C00EA8560 /* UnderlineSegmentedControl.swift */,
+				80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 				80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */,
 				80D665902702370200EA8560 /* NibLoadable.swift in Sources */,
 				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
-				80D665B12702626C00EA8560 /* UnderlineSegmentedControl.swift in Sources */,
+				80D665C72703229400EA8560 /* UnderlineSegmentedControl.swift in Sources */,
 				8058C10826FB377000F1EC8E /* Doors.swift in Sources */,
 				80553B5F26FA255900E93D57 /* CameraCellView.swift in Sources */,
 				80D665B62702DB1600EA8560 /* CameraTableViewDataSource.swift in Sources */,
