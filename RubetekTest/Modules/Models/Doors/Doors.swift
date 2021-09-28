@@ -11,32 +11,28 @@ struct FullData: Codable {
     let success: Bool
     let data: [Door]
     
-    static func getData(isRefresh: Bool = false) -> [Door] {
-        var doors: [Door] = []
-        
+    static func getData(isRefresh: Bool = false, completion: @escaping (Result<[Door], Error>) -> Void) {
+
         if !isRefresh {
             if let doorRealm = try? RealmService.get(DoorRealm.self), !doorRealm.isEmpty {
                 let doorRealmArray: [DoorRealm] = Array(doorRealm)
-                let doorsList: [Door] = doorRealmArray.map { Door(from: $0)}
-                doors = doorsList
+                let doors: [Door] = doorRealmArray.map { Door(from: $0)}
                 
-                return doors
+                 completion(.success(doors))
             }
         }
         NetworkService.request(api: Api.getDoors) { (result: Result<FullData, Error>) in
             switch result {
             case .success(let fullData):
-                doors = fullData.data
+                completion(.success(fullData.data))
                 DispatchQueue.main.async {
                     let doorsRealm = fullData.data.map { DoorRealm(from: $0)}
                     
                     RealmService.save(items: doorsRealm)
-                }            case .failure(_):
-                doors = []
+                }            case .failure(let error):
+                    completion(.failure(error))
             }
         }
-        
-        return doors
     }
 }
 

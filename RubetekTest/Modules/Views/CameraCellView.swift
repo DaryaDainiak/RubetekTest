@@ -10,13 +10,21 @@ import Kingfisher
 
 final class CameraCellView: UITableViewCell {
 
-    @IBOutlet var titleLable: UILabel!
+    @IBOutlet var titleLable: UILabel!{
+        didSet {
+            titleLable.isUserInteractionEnabled = true
+        }
+    }
 //    @IBOutlet var icon: UIImageView!
 //    @IBOutlet var lock: UIImageView!
     @IBOutlet var cameraView: UIImageView!
 //    @IBOutlet var rec: UIImageView!
 //    @IBOutlet var favorites: UIImageView!
-    @IBOutlet var backView: UIView!
+    @IBOutlet var backView: UIView! {
+        didSet {
+            backView.isUserInteractionEnabled = true
+        }
+    }
 //    @IBOutlet var cameraWidthConstraint: NSLayoutConstraint!
 //    @IBOutlet var cameraViewHeightConstraint: NSLayoutConstraint!
     
@@ -46,15 +54,15 @@ final class CameraCellView: UITableViewCell {
 //        cameraViewHeightConstraint.constant = cameraWidthConstraint.constant / 1.7
     }
     
-//    func configure(with doors: Door) {
-//        titleLable.text = doors.name
-////        icon.isHidden = true
-////        lock.isHidden = false
-//        if let url = URL(string: doors.snapshot ?? " ") {
-//            cameraView.kf.setImage(with: url)
-//        }
-////        favorites.isHidden = true
-////        rec.isHidden = true
-//
-//    }
+    func configure(with doors: Door) {
+        titleLable.text = doors.name
+//        icon.isHidden = true
+//        lock.isHidden = false
+        if let url = URL(string: doors.snapshot ?? " ") {
+            cameraView.kf.setImage(with: url)
+        }
+//        favorites.isHidden = true
+//        rec.isHidden = true
+
+    }
 }

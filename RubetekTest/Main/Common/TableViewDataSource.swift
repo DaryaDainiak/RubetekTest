@@ -199,6 +199,12 @@ open class TableViewDataSource:
         to destinationIndexPath: IndexPath
     ) {}
     
+    open func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {}
+    
+    
    
     // MARK: - UITableViewDataSourcePrefetching
     

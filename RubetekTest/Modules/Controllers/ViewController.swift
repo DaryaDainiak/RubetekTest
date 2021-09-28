@@ -51,7 +51,7 @@ final class ViewController: UIViewController {
         return refreshControl
     }()
     
-    var dataSource = TableViewDataSource()
+    var dataSource = CameraTableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +78,7 @@ final class ViewController: UIViewController {
     
     private func setUpTableView() {
         dataSource.tableView = cameraTableView
+        dataSource.navigationController = navigationController
         
         //        cameraTableView.delegate = self
         //        cameraTableView.dataSource = self
@@ -89,16 +90,16 @@ final class ViewController: UIViewController {
     }
     
     private func getRooms(isRefresh: Bool = false) {
-        let allData = AllData.getData(isRefresh: isRefresh)
-        guard let _ = allData?.data.room,
-              let cameras = allData?.data.cameras
-        else {
-            showAlert()
-            return
+        AllData.getData(isRefresh: isRefresh) { [weak self] result in
+            
+            switch result {
+            case .success(let allData):
+                self?.dataSource.items = allData.data.cameras
+            case .failure(let error):
+                self?.showAlert(error: error)
+            }
         }
         
-        
-        self.dataSource.items = cameras
         
         //        self.rooms = rooms
         //        self.cameras = cameras
@@ -109,8 +110,15 @@ final class ViewController: UIViewController {
     }
     
     private func getDoors(isRefresh: Bool = false) {
-        let doors = FullData.getData(isRefresh: isRefresh)
-        self.dataSource.items = doors
+        FullData.getData(isRefresh: isRefresh) { [weak self] result in
+            
+            switch result {
+            case .success(let doors):
+                self?.dataSource.items = doors
+            case .failure(let error):
+                self?.showAlert(error: error)
+            }
+        }
         
 //        self.doors = doors
 //        DispatchQueue.main.async {
@@ -119,7 +127,7 @@ final class ViewController: UIViewController {
 //        }
     }
     
-    private func showAlert() {
+    private func showAlert(error: Error? = nil) {
         let alert = UIAlertController(title: "Ошибка", message: "Ошибка сервиса", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(action)

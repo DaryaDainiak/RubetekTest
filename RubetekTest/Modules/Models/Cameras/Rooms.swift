@@ -11,35 +11,33 @@ struct AllData: Codable {
     let success: Bool
     let data: DataModel
     
-    static func getData(isRefresh: Bool = false) -> AllData? {
-          var allData: AllData?
-          
+    static func getData(isRefresh: Bool = false, completion: @escaping (Result<AllData, Error>) -> Void) {
+
           if !isRefresh {
               if let dataModelRealm = try? RealmService.get(DataModelRealm.self), !dataModelRealm.isEmpty {
                   let dataModel = Array(dataModelRealm)
                   if let cameras = dataModel.first?.cameras,
                      let rooms = dataModel.first?.room {
                       let dataModel = DataModel(room: Array(rooms), cameras: Array(cameras).map {Camera(from: $0) } )
-                      allData = AllData(success: true, data: dataModel)
+                      let allData = AllData(success: true, data: dataModel)
                       
-                      return allData
+                    completion(.success(allData))
                   }
               }
           }
           NetworkService.request(api: Api.getCameras) { (result: Result<AllData, Error>) in
               switch result {
-              case .success(let data):
-                  allData = data
+              case .success(let allData):
+                completion(.success(allData))
                   DispatchQueue.main.async {
-                      let dataModelRealm = DataModelRealm(rooms: data.data.room, cameras: data.data.cameras)
+                      let dataModelRealm = DataModelRealm(rooms: allData.data.room, cameras: allData.data.cameras)
                       
                       RealmService.save(items: [dataModelRealm])
                   }
-              case .failure(_):
-                  allData = nil
+              case .failure(let error):
+                completion(.failure(error))
               }
           }
-          return allData
       }
   }
 
