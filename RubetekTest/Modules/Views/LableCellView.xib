@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LableCellView" rowHeight="98" id="IUK-rN-5Vo" customClass="LableCellView" customModule="RubetekTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IUK-rN-5Vo" id="Xzy-uU-6aH">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="98"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tou-Ih-JmI">
+                        <rect key="frame" x="16" y="5" width="383" height="88"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0J-Q4-4a9">
+                                <rect key="frame" x="16" y="34" width="311" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u9Y-yk-FlV">
+                                <rect key="frame" x="327" y="26.5" width="40" height="34.5"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5yn-9D-fwM"/>
+                                    <constraint firstAttribute="width" constant="40" id="o8k-Pw-yLo"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="thin"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l0J-Q4-4a9" firstAttribute="centerY" secondItem="Tou-Ih-JmI" secondAttribute="centerY" id="2Sv-h2-eKF"/>
+                            <constraint firstAttribute="trailing" secondItem="u9Y-yk-FlV" secondAttribute="trailing" constant="16" id="SS5-tx-6T1"/>
+                            <constraint firstItem="u9Y-yk-FlV" firstAttribute="leading" secondItem="l0J-Q4-4a9" secondAttribute="trailing" id="WRt-y0-oy7"/>
+                            <constraint firstAttribute="bottom" secondItem="l0J-Q4-4a9" secondAttribute="bottom" constant="34" id="buc-2R-uor"/>
+                            <constraint firstItem="l0J-Q4-4a9" firstAttribute="leading" secondItem="Tou-Ih-JmI" secondAttribute="leading" constant="16" id="dvO-ph-1lh"/>
+                            <constraint firstItem="l0J-Q4-4a9" firstAttribute="top" secondItem="Tou-Ih-JmI" secondAttribute="top" constant="34" id="oec-Te-pSs"/>
+                            <constraint firstItem="u9Y-yk-FlV" firstAttribute="centerY" secondItem="l0J-Q4-4a9" secondAttribute="centerY" id="ypo-J4-kuM"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Tou-Ih-JmI" firstAttribute="top" secondItem="Xzy-uU-6aH" secondAttribute="top" constant="5" id="4Xp-ge-jON"/>
+                    <constraint firstItem="Tou-Ih-JmI" firstAttribute="leading" secondItem="Xzy-uU-6aH" secondAttribute="leading" constant="16" id="Hdv-87-wMM"/>
+                    <constraint firstAttribute="trailing" secondItem="Tou-Ih-JmI" secondAttribute="trailing" constant="16" id="JjB-ME-0ff"/>
+                    <constraint firstAttribute="bottom" secondItem="Tou-Ih-JmI" secondAttribute="bottom" constant="5" id="Qb3-dt-VYI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <connections>
+                <outlet property="backView" destination="Tou-Ih-JmI" id="Iim-8B-BRu"/>
+                <outlet property="lockImage" destination="u9Y-yk-FlV" id="C4y-Il-d54"/>
+                <outlet property="titleLable" destination="l0J-Q4-4a9" id="aY4-Gi-tNd"/>
+            </connections>
+            <point key="canvasLocation" x="-3.6231884057971016" y="-265.84821428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

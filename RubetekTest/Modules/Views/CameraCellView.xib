@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CameraCellView" rowHeight="322" id="02D-DS-IyK" customClass="CameraCellView" customModule="RubetekTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="396" height="322"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="02D-DS-IyK" id="d6t-PN-sEW">
+                <rect key="frame" x="0.0" y="0.0" width="396" height="322"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IkZ-Uq-MZW">
+                        <rect key="frame" x="16" y="5" width="364" height="310"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Al9-sx-7U7">
+                                <rect key="frame" x="0.0" y="0.0" width="364" height="230"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="layer.maskedCorners">
+                                        <point key="value" x="16" y="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-OT-Pzk">
+                                <rect key="frame" x="16" y="230" width="316" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Al9-sx-7U7" firstAttribute="leading" secondItem="IkZ-Uq-MZW" secondAttribute="leading" id="1rb-QB-Jjd"/>
+                            <constraint firstAttribute="height" constant="310" id="3mK-Gs-J18"/>
+                            <constraint firstAttribute="trailing" secondItem="Al9-sx-7U7" secondAttribute="trailing" id="6Fv-ma-FuO"/>
+                            <constraint firstAttribute="bottom" secondItem="4Ii-OT-Pzk" secondAttribute="bottom" id="MaP-ez-Mye"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ii-OT-Pzk" secondAttribute="trailing" constant="32" id="Upn-2c-fjy"/>
+                            <constraint firstItem="4Ii-OT-Pzk" firstAttribute="leading" secondItem="IkZ-Uq-MZW" secondAttribute="leading" constant="16" id="cy6-Gb-uti"/>
+                            <constraint firstAttribute="bottom" secondItem="Al9-sx-7U7" secondAttribute="bottom" constant="80" id="m47-J1-xDB"/>
+                            <constraint firstItem="4Ii-OT-Pzk" firstAttribute="top" secondItem="Al9-sx-7U7" secondAttribute="bottom" id="pxE-8x-o9R"/>
+                            <constraint firstItem="Al9-sx-7U7" firstAttribute="top" secondItem="IkZ-Uq-MZW" secondAttribute="top" id="rXW-Wc-aDC"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="IkZ-Uq-MZW" secondAttribute="bottom" constant="5" id="0q8-mN-2NX"/>
+                    <constraint firstAttribute="trailing" secondItem="IkZ-Uq-MZW" secondAttribute="trailing" constant="16" id="AC7-Hr-5gZ"/>
+                    <constraint firstItem="IkZ-Uq-MZW" firstAttribute="leading" secondItem="d6t-PN-sEW" secondAttribute="leading" constant="16" id="Jg1-CM-YWq"/>
+                    <constraint firstItem="IkZ-Uq-MZW" firstAttribute="top" secondItem="d6t-PN-sEW" secondAttribute="top" constant="5" id="jyJ-uJ-7qN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <connections>
+                <outlet property="backView" destination="IkZ-Uq-MZW" id="gwY-VD-IeZ"/>
+                <outlet property="cameraView" destination="Al9-sx-7U7" id="od4-D4-XXE"/>
+                <outlet property="titleLable" destination="4Ii-OT-Pzk" id="oGJ-cg-6Ms"/>
+            </connections>
+            <point key="canvasLocation" x="311.59420289855075" y="-135.9375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

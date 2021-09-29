@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class LableCell: UITableViewCell {
+final class LableCellView: UITableViewCell {
     @IBOutlet var backView: UIView!{
         didSet {
             backView.layer.cornerRadius = 20
@@ -28,7 +28,7 @@ final class LableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func fillDoors(doors: Door) {
+    func configure(with doors: Door) {
         titleLable.text = doors.name
     }
 }
