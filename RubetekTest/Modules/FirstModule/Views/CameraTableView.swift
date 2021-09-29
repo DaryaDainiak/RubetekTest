@@ -95,7 +95,7 @@ class CameraTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let dvc = DetailsViewController.instantiate()
+        let dvc = DetailsViewController.instantiate(name: "Main")
         
         dvc.imageName = cameras[indexPath.row].snapshot
         dvc.titleName = cameras[indexPath.row].name

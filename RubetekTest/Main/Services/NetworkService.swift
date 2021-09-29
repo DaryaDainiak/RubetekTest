@@ -10,10 +10,7 @@ import Foundation
 
 class NetworkService {
     class func request<T: Codable>(api: Api, completion: @escaping (Result<T, Error>) -> Void) {
-        var components = URLComponents()
-        components.scheme = api.scheme
-        components.host = api.host
-        components.path = api.path
+        let components = api.getComponents(api: api)
         
         guard let url = components.url else { return }
         var urlRequest = URLRequest(url: url)
