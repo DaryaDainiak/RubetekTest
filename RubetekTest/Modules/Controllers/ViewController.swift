@@ -7,15 +7,15 @@
 
 import UIKit
 
-extension CameraCellView: ConfigurableView & NibLoadable & SelfCreatingView {
-    typealias ViewData = Camera
-}
-
-extension Camera: ReusableCellItem {
-    public static var cellType: AnyClass? {
-        return GenericTableViewCell<CameraCellView>.self
-    }
-}
+//extension CameraCellView: ConfigurableView & NibLoadable & SelfCreatingView {
+//    typealias ViewData = Camera
+//}
+//
+//extension Camera: ReusableCellItem {
+//    public static var cellType: AnyClass? {
+//        return GenericTableViewCell<CameraCellView>.self
+//    }
+//}
 
 extension LableCellView: ConfigurableView & NibLoadable & SelfCreatingView {
     typealias ViewData = Door
@@ -32,8 +32,9 @@ final class ViewController: UIViewController {
     
     
     @IBOutlet private var customSegmentedControl: UnderlineSegmentedControl!
-
-    @IBOutlet private var cameraTableView: UITableView!
+    
+    @IBOutlet var cameraTableView: CameraTableView!
+    @IBOutlet private var customTableView: UITableView!
     private let networkService: NetworkService = NetworkService()
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -43,27 +44,32 @@ final class ViewController: UIViewController {
         return refreshControl
     }()
     
-    var dataSource = CameraTableViewDataSource()
+    var dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpNavBar()
-        cameraTableView.refreshControl = refreshControl
+        setupRefresh()
         setUpTableView()
         getRooms()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            customSegmentedControl.frame.size.height = 50
-            setUpSegmentedControl()
-        }
+        super.viewWillAppear(animated)
+        
+        setUpSegmentedControl()
+    }
     
     private func setUpNavBar() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
+    }
+    
+    private func setupRefresh() {
+        customTableView.refreshControl = refreshControl
+        cameraTableView.refreshControl = refreshControl
     }
     
     @objc private func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -75,8 +81,13 @@ final class ViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        dataSource.tableView = cameraTableView
-        dataSource.navigationController = navigationController
+        cameraTableView.isHidden = false
+        customTableView.isHidden = true
+        dataSource.tableView = customTableView
+        
+        cameraTableView.goDetails = { [weak self] vc in
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func getRooms(isRefresh: Bool = false) {
@@ -84,7 +95,7 @@ final class ViewController: UIViewController {
             self?.refreshControl.endRefreshing()
             switch result {
             case .success(let allData):
-                self?.dataSource.items = allData.data.cameras
+                self?.cameraTableView.set(cameras: allData.data.cameras, rooms: allData.data.room)
             case .failure(let error):
                 self?.showAlert(error: error)
             }
@@ -111,6 +122,7 @@ final class ViewController: UIViewController {
     }
     
     private func setUpSegmentedControl() {
+        customSegmentedControl.frame.size.height = 50
         customSegmentedControl.addUnderlineForSelectedSegment(backgroundColor: .systemGray6, titleColor: .black, selectedColor: .systemTeal)
         customSegmentedControl.selectedSegmentIndex = 0
     }
@@ -118,6 +130,9 @@ final class ViewController: UIViewController {
     @IBAction private func tapSegment(_ sender: Any) {
         customSegmentedControl.changeUnderlinePosition()
         let segmentIndex = customSegmentedControl.selectedSegmentIndex
+        cameraTableView.isHidden = segmentIndex == 1
+        customTableView.isHidden = segmentIndex == 0
+        
         if segmentIndex == 0 {
             getRooms()
         } else {
