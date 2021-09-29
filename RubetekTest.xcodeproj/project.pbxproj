@@ -30,9 +30,9 @@
 		80D665932702371A00EA8560 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665922702371A00EA8560 /* TableViewDataSource.swift */; };
 		80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665972702383200EA8560 /* UIView+Autolayout.swift */; };
 		80D665A52702507A00EA8560 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665A42702507A00EA8560 /* Storyboarded.swift */; };
-		80D665B62702DB1600EA8560 /* CameraTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665B52702DB1600EA8560 /* CameraTableViewDataSource.swift */; };
 		80D665C72703229400EA8560 /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */; };
 		80FD0D66270366D200D8BDC1 /* ImageForSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD0D65270366D200D8BDC1 /* ImageForSegment.swift */; };
+		80FD0D7127043E8E00D8BDC1 /* CameraTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD0D7027043E8E00D8BDC1 /* CameraTableView.swift */; };
 		C6725BD4FA49F7440BEBCBBD /* Pods_RubetekTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,9 +63,9 @@
 		80D665922702371A00EA8560 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		80D665972702383200EA8560 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		80D665A42702507A00EA8560 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		80D665B52702DB1600EA8560 /* CameraTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableViewDataSource.swift; sourceTree = "<group>"; };
 		80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		80FD0D65270366D200D8BDC1 /* ImageForSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageForSegment.swift; sourceTree = "<group>"; };
+		80FD0D7027043E8E00D8BDC1 /* CameraTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTableView.swift; sourceTree = "<group>"; };
 		9BED421523EB967819A3BF75 /* Pods_RubetekTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubetekTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8C15B8051E47BB3F78C87A /* Pods-RubetekTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubetekTest.debug.xcconfig"; path = "Target Support Files/Pods-RubetekTest/Pods-RubetekTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +133,7 @@
 		80553B6226FA6AA700E93D57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				80FD0D7027043E8E00D8BDC1 /* CameraTableView.swift */,
 				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
 				8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */,
 				80D665832702124A00EA8560 /* LableCellView.xib */,
@@ -183,7 +184,6 @@
 		80D19E0A26FDE2D1002783B2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				80D665B42702DABF00EA8560 /* Helpers */,
 				80D19E0C26FDE4F1002783B2 /* Controllers */,
 				80553B6126FA6A9A00E93D57 /* Models */,
 				80553B6226FA6AA700E93D57 /* Views */,
@@ -245,14 +245,6 @@
 				80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */,
 			);
 			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		80D665B42702DABF00EA8560 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				80D665B52702DB1600EA8560 /* CameraTableViewDataSource.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DFB483EF0BFEB9530DCCD132 /* Frameworks */ = {
@@ -383,10 +375,10 @@
 				80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */,
 				80D665902702370200EA8560 /* NibLoadable.swift in Sources */,
 				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
+				80FD0D7127043E8E00D8BDC1 /* CameraTableView.swift in Sources */,
 				80D665C72703229400EA8560 /* UnderlineSegmentedControl.swift in Sources */,
 				8058C10826FB377000F1EC8E /* Doors.swift in Sources */,
 				80553B5F26FA255900E93D57 /* CameraCellView.swift in Sources */,
-				80D665B62702DB1600EA8560 /* CameraTableViewDataSource.swift in Sources */,
 				80FD0D66270366D200D8BDC1 /* ImageForSegment.swift in Sources */,
 				8007F4742701A35300C2BAEF /* Rooms.swift in Sources */,
 				80D665A52702507A00EA8560 /* Storyboarded.swift in Sources */,
