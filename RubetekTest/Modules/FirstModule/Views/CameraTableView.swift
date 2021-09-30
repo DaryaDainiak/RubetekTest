@@ -9,7 +9,7 @@ import UIKit
 
 class CameraTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: - Nested enum
+    // MARK: - Consts enum
     
     enum Consts {
         static let imageCell = "CameraCellView"

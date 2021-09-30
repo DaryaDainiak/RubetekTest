@@ -33,7 +33,9 @@ final class ViewController: UIViewController {
     
     @IBOutlet var cameraTableView: CameraTableView!
     @IBOutlet private var customTableView: UITableView!
-    private let networkService: NetworkService = NetworkService()
+    private let networkService: NetworkServiceProtocol = NetworkService()
+    private lazy var dbManager: DataBaseService = RealmService()
+    private lazy var repository: CameraRepositoryProtocol = CameraRepository(dbManager: dbManager)
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -66,7 +68,6 @@ final class ViewController: UIViewController {
     }
     
     private func setupRefresh() {
-        customTableView.refreshControl = refreshControl
         cameraTableView.refreshControl = refreshControl
     }
     
@@ -89,11 +90,12 @@ final class ViewController: UIViewController {
     }
     
     private func getRooms(isRefresh: Bool = false) {
-        AllData.getData(isRefresh: isRefresh) { [weak self] result in
+        
+        AllData.getData(repository: repository, isRefresh: isRefresh) { [weak self] result in
             self?.refreshControl.endRefreshing()
             switch result {
-            case .success(let allData):
-                self?.cameraTableView.set(cameras: allData.data.cameras, rooms: allData.data.room)
+            case .success(let dataModel):
+                self?.cameraTableView.set(cameras: dataModel.cameras, rooms: dataModel.room)
             case .failure(let error):
                 self?.showAlert(error: error)
             }

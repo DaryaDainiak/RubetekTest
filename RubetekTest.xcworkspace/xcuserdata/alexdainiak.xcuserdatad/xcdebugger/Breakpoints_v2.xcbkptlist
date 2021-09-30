@@ -231,22 +231,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "77BE48BA-B645-41ED-8F22-7C49292C0819"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RubetekTest/Main/Common/TableViewDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "items"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7B3CF5D4-4304-4E8E-BB64-41791C091C3C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -344,7 +328,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E709E0BF-A267-487C-8EC3-E40301F58365"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RubetekTest/Main/UIComponents/UnderlineSegmentedControl.swift"
@@ -370,6 +354,118 @@
             endingLineNumber = "54"
             landmarkName = "changeUnderlinePosition()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96A43CC0-87B8-48F8-A425-6B977D8528DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getData(repository:isRefresh:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "96A43CC0-87B8-48F8-A425-6B977D8528DC - 8e45cd97277c05f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; () in static RubetekTest.AllData.getData(isRefresh: Swift.Bool, completion: (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RubetekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexdainiak/study_ios/Projects/Rubetek/RubetekTest/RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "354">
+               </Location>
+               <Location
+                  uuid = "96A43CC0-87B8-48F8-A425-6B977D8528DC - 8e45cd97277c05f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; () in static RubetekTest.AllData.getData(isRefresh: Swift.Bool, completion: (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RubetekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexdainiak/study_ios/Projects/Rubetek/RubetekTest/RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "395">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80AAD801-CCB5-46D2-8DFA-3682C993D4AD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getData(repository:isRefresh:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AEF6D2C-C36D-4A5F-9574-15E9112AE55F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getData(repository:isRefresh:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0AEF6D2C-C36D-4A5F-9574-15E9112AE55F - 26c832d5695574ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RubetekTest.AllData.getData(isRefresh: Swift.Bool, completion: (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RubetekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexdainiak/study_ios/Projects/Rubetek/RubetekTest/RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "523">
+               </Location>
+               <Location
+                  uuid = "0AEF6D2C-C36D-4A5F-9574-15E9112AE55F - 8e45cd97277c05f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; () in static RubetekTest.AllData.getData(isRefresh: Swift.Bool, completion: (Swift.Result&lt;RubetekTest.AllData, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RubetekTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexdainiak/study_ios/Projects/Rubetek/RubetekTest/RubetekTest/Modules/FirstModule/Models/Cameras/Rooms.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "354">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

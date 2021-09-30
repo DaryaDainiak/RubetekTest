@@ -11,39 +11,52 @@ struct AllData: Codable {
     let success: Bool
     let data: DataModel
     
-    static func getData(isRefresh: Bool = false, completion: @escaping (Result<AllData, Error>) -> Void) {
-
-          if !isRefresh {
-              if let dataModelRealm = try? RealmService.get(DataModelRealm.self), !dataModelRealm.isEmpty {
-                  let dataModel = Array(dataModelRealm)
-                  if let cameras = dataModel.first?.cameras,
-                     let rooms = dataModel.first?.room {
-                      let dataModel = DataModel(room: Array(rooms), cameras: Array(cameras).map {Camera(from: $0) } )
-                      let allData = AllData(success: true, data: dataModel)
-                      
-                    completion(.success(allData))
-                  }
-              }
-          }
-          NetworkService.request(api: Api.getCameras) { (result: Result<AllData, Error>) in
-              switch result {
-              case .success(let allData):
-                completion(.success(allData))
-                  DispatchQueue.main.async {
-                      let dataModelRealm = DataModelRealm(rooms: allData.data.room, cameras: allData.data.cameras)
-                      
-                      RealmService.save(items: [dataModelRealm])
-                  }
-              case .failure(let error):
+    static func getData(
+        repository: CameraRepositoryProtocol,
+        isRefresh: Bool = false,
+        completion: @escaping (Result<DataModel, Error>) -> Void
+    ) {
+        var goNetwork = true
+        
+        if !isRefresh {
+            repository.getDataModel() { (dataModel: DataModel) in
+                completion(.success(dataModel))
+                goNetwork = false
+            }
+        }
+        
+        guard goNetwork else { return }
+        
+        NetworkService.request(api: Api.getCameras) { (result: Result<AllData, Error>) in
+            switch result {
+            case .success(let allData):
+                completion(.success(allData.data))
+                repository.saveDataModel(dataModel: DataModel(room: allData.data.room, cameras: allData.data.cameras))
+            case .failure(let error):
                 completion(.failure(error))
-              }
-          }
-      }
-  }
+            }
+        }
+    }
+}
 
 struct DataModel: Codable {
     let room: [String]
     let cameras: [Camera]
+}
+
+extension DataModel: MappableProtocol {
+    
+    func mapToPersistenceObject() -> DataModelRealm {
+        
+        return DataModelRealm(rooms: room, cameras: cameras)
+    }
+    
+    static func mapFromPersistenceObject(_ object: DataModelRealm) -> DataModel {
+        let cameras = object.cameras
+        let rooms = object.room
+        
+        return DataModel(room: Array(rooms), cameras: cameras.compactMap {Camera(from: $0) } )
+    }
 }
 
 struct Camera: Codable {

@@ -5,59 +5,75 @@
 //  Created by Darya Dainiak on 9/22/21.
 //
 
+import Foundation
 import RealmSwift
 
-///
-final class RealmService {
-    static let deleteIfMigration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+//MARK: - DataBaseService Implementation
 
-    static func save<T: Object>(
-        items: [T],
-        config: Realm.Configuration = Realm.Configuration.defaultConfiguration,
-        update: Bool = true
-    ) {
-        guard let fileURL = config.fileURL else { return }
-        print("\(fileURL)")
-
+final class RealmService: DataBaseService {
+    
+    //MARK: - Stored Properties
+    
+    private let realm: Realm?
+    
+    init(_ realm: Realm?) {
+        self.realm = realm
+    }
+    
+    convenience init() {
+        let config = Realm.Configuration.defaultConfiguration
+        let realm = try? Realm(configuration: config)
+        
+        self.init(realm)
+    }
+    
+    func save(object: Storable) {
+        guard let realm = realm, let object = object as? Object else { return }
+        
         do {
-            let realm = try Realm(configuration: config)
-
             try realm.write {
-                realm.add(items, update: .all)
+                realm.add(object, update: .all)
             }
-
         } catch {
             print(error)
         }
     }
-
-    static func get<T: Object>(
-        _ type: T.Type,
-        config: Realm.Configuration = Realm.Configuration.defaultConfiguration
-    )
-        throws -> Results<T>
-    {
-        let realm = try Realm(configuration: config)
-        let results = realm.objects(type)
-        return results
+    
+    func get<T: Storable>(_ model: T.Type, predicate: NSPredicate?, completion: (([T]) -> ())) {
+        guard let realm = realm, let model = model as? Object.Type else { return }
+        
+        var objects = realm.objects(model)
+        if let predicate = predicate {
+            objects = objects.filter(predicate)
+        }
+        
+        completion(objects.compactMap { $0 as? T })
     }
-
-    static func delete<T: Object>(
-        _ items: [T],
-        config: Realm.Configuration = Realm.Configuration.defaultConfiguration
-    ) {
-        let realm = try? Realm(configuration: config)
-        try? realm?.write {
-            realm?.delete(items)
+    
+    func delete(object: Storable) {
+        guard let realm = realm, let object = object as? Object else { return }
+        
+        do {
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            print(error)
         }
     }
-
-    static func deleteAll(
-        config: Realm.Configuration = Realm.Configuration.defaultConfiguration
-    ) {
-        let realm = try? Realm(configuration: config)
-        try? realm?.write {
-            realm?.deleteAll()
+    
+    func deleteAll<T>(_ model: T.Type) {
+        guard let realm = realm, let model = model as? Object.Type else { return }
+        
+        do {
+            try realm.write {
+                let objects = realm.objects(model)
+                for object in objects {
+                    realm.delete(object)
+                }
+            }
+        } catch {
+            print(error)
         }
     }
 }
