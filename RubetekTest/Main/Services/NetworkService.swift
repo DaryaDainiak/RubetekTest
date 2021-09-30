@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol NetworkServiceProtocol {
-    static func request<T: Codable>(api: Api, completion: @escaping (Result<T, Error>) -> Void)
-}
-
 class NetworkService: NetworkServiceProtocol {
     static func request<T: Codable>(api: Api, completion: @escaping (Result<T, Error>) -> Void) {
         let components = api.getComponents()

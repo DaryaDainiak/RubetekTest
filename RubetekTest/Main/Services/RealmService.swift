@@ -39,6 +39,20 @@ final class RealmService: DataBaseService {
         }
     }
     
+    func save(objects: [Storable]) {
+        guard let realm = realm else { return }
+        
+        let objects = objects.compactMap { $0 as? Object }
+        
+        do {
+            try realm.write {
+                realm.add(objects, update: .all)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     func get<T: Storable>(_ model: T.Type, predicate: NSPredicate?, completion: (([T]) -> ())) {
         guard let realm = realm, let model = model as? Object.Type else { return }
         

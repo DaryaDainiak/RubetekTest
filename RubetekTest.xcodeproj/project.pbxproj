@@ -25,6 +25,11 @@
 		8058C11B26FB657E00F1EC8E /* LableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058C11A26FB657E00F1EC8E /* LableCellView.swift */; };
 		809B0E1F2705BBDA00676BAB /* CameraRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E1E2705BBDA00676BAB /* CameraRepository.swift */; };
 		809B0E242705C0FA00676BAB /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E232705C0FA00676BAB /* MappableProtocol.swift */; };
+		809B0E272705D8AD00676BAB /* CameraRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E262705D8AD00676BAB /* CameraRepositoryProtocol.swift */; };
+		809B0E2A2705D92200676BAB /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E292705D92200676BAB /* NetworkServiceProtocol.swift */; };
+		809B0E2D2705F21800676BAB /* DoorsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E2C2705F21800676BAB /* DoorsRepositoryProtocol.swift */; };
+		809B0E312705F39300676BAB /* DoorsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E302705F39300676BAB /* DoorsRepository.swift */; };
+		809B0E352705F69500676BAB /* Door+MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E342705F69500676BAB /* Door+MappableProtocol.swift */; };
 		80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D19E1226FE0717002783B2 /* NetworkService.swift */; };
 		80D665842702124A00EA8560 /* LableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D665832702124A00EA8560 /* LableCellView.xib */; };
 		80D6658D270236F100EA8560 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6658C270236F100EA8560 /* Reusable.swift */; };
@@ -64,6 +69,11 @@
 		8058C11A26FB657E00F1EC8E /* LableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LableCellView.swift; sourceTree = "<group>"; };
 		809B0E1E2705BBDA00676BAB /* CameraRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRepository.swift; sourceTree = "<group>"; };
 		809B0E232705C0FA00676BAB /* MappableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
+		809B0E262705D8AD00676BAB /* CameraRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRepositoryProtocol.swift; sourceTree = "<group>"; };
+		809B0E292705D92200676BAB /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		809B0E2C2705F21800676BAB /* DoorsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRepositoryProtocol.swift; sourceTree = "<group>"; };
+		809B0E302705F39300676BAB /* DoorsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRepository.swift; sourceTree = "<group>"; };
+		809B0E342705F69500676BAB /* Door+MappableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Door+MappableProtocol.swift"; sourceTree = "<group>"; };
 		80D19E1226FE0717002783B2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		80D665832702124A00EA8560 /* LableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LableCellView.xib; sourceTree = "<group>"; };
 		80D6658C270236F100EA8560 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -159,7 +169,6 @@
 			children = (
 				80D19E1226FE0717002783B2 /* NetworkService.swift */,
 				8058C11026FB4E0400F1EC8E /* RealmService.swift */,
-				80FD0DA62705A56D00D8BDC1 /* DataBaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				809B0E1E2705BBDA00676BAB /* CameraRepository.swift */,
+				809B0E302705F39300676BAB /* DoorsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -263,6 +273,7 @@
 		80D665962702380B00EA8560 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				809B0E342705F69500676BAB /* Door+MappableProtocol.swift */,
 				80FD0DA22705A4A600D8BDC1 /* RealmObject+Storable.swift */,
 				80D665972702383200EA8560 /* UIView+Autolayout.swift */,
 				80FD0D65270366D200D8BDC1 /* ImageForSegment.swift */,
@@ -292,7 +303,11 @@
 			isa = PBXGroup;
 			children = (
 				80FD0D9E2705A41400D8BDC1 /* Storable.swift */,
+				80FD0DA62705A56D00D8BDC1 /* DataBaseService.swift */,
 				809B0E232705C0FA00676BAB /* MappableProtocol.swift */,
+				809B0E262705D8AD00676BAB /* CameraRepositoryProtocol.swift */,
+				809B0E2C2705F21800676BAB /* DoorsRepositoryProtocol.swift */,
+				809B0E292705D92200676BAB /* NetworkServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -428,11 +443,14 @@
 				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
 				80FD0DA32705A4A600D8BDC1 /* RealmObject+Storable.swift in Sources */,
 				80FD0D8F2704B73E00D8BDC1 /* Item.swift in Sources */,
+				809B0E2A2705D92200676BAB /* NetworkServiceProtocol.swift in Sources */,
 				80FD0DA72705A56D00D8BDC1 /* DataBaseService.swift in Sources */,
 				80FD0D9F2705A41400D8BDC1 /* Storable.swift in Sources */,
 				80FD0D7127043E8E00D8BDC1 /* CameraTableView.swift in Sources */,
 				80D665C72703229400EA8560 /* UnderlineSegmentedControl.swift in Sources */,
 				8058C10826FB377000F1EC8E /* Doors.swift in Sources */,
+				809B0E272705D8AD00676BAB /* CameraRepositoryProtocol.swift in Sources */,
+				809B0E312705F39300676BAB /* DoorsRepository.swift in Sources */,
 				80553B5F26FA255900E93D57 /* CameraCellView.swift in Sources */,
 				80FD0D66270366D200D8BDC1 /* ImageForSegment.swift in Sources */,
 				8007F4742701A35300C2BAEF /* Rooms.swift in Sources */,
@@ -444,8 +462,10 @@
 				80553B4426F9EA9D00E93D57 /* AppDelegate.swift in Sources */,
 				80553B4626F9EA9D00E93D57 /* SceneDelegate.swift in Sources */,
 				80D6658D270236F100EA8560 /* Reusable.swift in Sources */,
+				809B0E2D2705F21800676BAB /* DoorsRepositoryProtocol.swift in Sources */,
 				80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */,
 				8007F47E2701DF5700C2BAEF /* Api.swift in Sources */,
+				809B0E352705F69500676BAB /* Door+MappableProtocol.swift in Sources */,
 				8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */,
 				809B0E1F2705BBDA00676BAB /* CameraRepository.swift in Sources */,
 			);

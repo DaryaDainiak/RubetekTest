@@ -11,25 +11,27 @@ struct FullData: Codable {
     let success: Bool
     let data: [Door]
     
-    static func getData(isRefresh: Bool = false, completion: @escaping (Result<[Door], Error>) -> Void) {
-
+    static func getData(
+        repository: DoorsRepositoryProtocol,
+        isRefresh: Bool = false,
+        completion: @escaping (Result<[Door], Error>) -> Void
+    ) {
+        var goNetwork = true
+        
         if !isRefresh {
-//            if let doorRealm = try? RealmService.get(DoorRealm.self), !doorRealm.isEmpty {
-//                let doorRealmArray: [DoorRealm] = Array(doorRealm)
-//                let doors: [Door] = doorRealmArray.map { Door(from: $0)}
-//
-//                 completion(.success(doors))
-//            }
+            repository.getData() { (doors: [Door]) in completion(.success(doors))
+                goNetwork = doors.isEmpty
+            }
         }
+        guard goNetwork else { return }
+        
         NetworkService.request(api: Api.getDoors) { (result: Result<FullData, Error>) in
             switch result {
             case .success(let fullData):
                 completion(.success(fullData.data))
-                DispatchQueue.main.async {
-                    let doorsRealm = fullData.data.map { DoorRealm(from: $0)}
-                    
-//                    RealmService.save(items: doorsRealm)
-                }            case .failure(let error):
+                repository.saveData(doors: fullData.data)
+                
+            case .failure(let error):
                     completion(.failure(error))
             }
         }

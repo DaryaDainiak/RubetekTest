@@ -11,6 +11,7 @@ import Foundation
 
 protocol DataBaseService {
     func save(object: Storable)
+    func save(objects: [Storable])
     func get<T: Storable>(_ model: T.Type, predicate: NSPredicate?, completion: (([T]) -> ()))
     func delete(object: Storable)
     func deleteAll<T: Storable>(_ model: T.Type)

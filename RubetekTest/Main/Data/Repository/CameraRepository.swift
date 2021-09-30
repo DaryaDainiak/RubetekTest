@@ -7,12 +7,6 @@
 
 import Foundation
 
-protocol CameraRepositoryProtocol {
-    
-    func getDataModel(completion: (DataModel) -> Void)
-    func saveDataModel(dataModel: DataModel)
-}
-
 final class CameraRepository: CameraRepositoryProtocol {
     
     //MARK: - Stored Properties
@@ -26,7 +20,6 @@ final class CameraRepository: CameraRepositoryProtocol {
     }
     
     func getDataModel(completion: (DataModel) -> Void) {
-        
         self.dbManager.get(DataModelRealm.self, predicate: nil) {
             guard let dataModelRealm = $0.first else { return }
             
@@ -38,6 +31,5 @@ final class CameraRepository: CameraRepositoryProtocol {
     
     func saveDataModel(dataModel: DataModel) {
         dbManager.save(object: dataModel.mapToPersistenceObject())
-        
     }
 }

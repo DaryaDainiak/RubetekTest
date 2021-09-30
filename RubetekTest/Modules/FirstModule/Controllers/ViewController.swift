@@ -36,6 +36,7 @@ final class ViewController: UIViewController {
     private let networkService: NetworkServiceProtocol = NetworkService()
     private lazy var dbManager: DataBaseService = RealmService()
     private lazy var repository: CameraRepositoryProtocol = CameraRepository(dbManager: dbManager)
+    private lazy var repositoryDoors: DoorsRepositoryProtocol = DoorsRepository(dbManager: dbManager)
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
@@ -103,7 +104,7 @@ final class ViewController: UIViewController {
     }
     
     private func getDoors(isRefresh: Bool = false) {
-        FullData.getData(isRefresh: isRefresh) { [weak self] result in
+        FullData.getData(repository: repositoryDoors, isRefresh: isRefresh) { [weak self] result in
             self?.refreshControl.endRefreshing()
             switch result {
             case .success(let doors):
