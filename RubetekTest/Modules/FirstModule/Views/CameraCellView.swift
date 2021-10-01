@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class CameraCellView: UITableViewCell {
+final class CameraCellView: BaseTableCell {
 
     @IBOutlet var titleLable: UILabel!{
         didSet {

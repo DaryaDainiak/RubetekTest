@@ -16,7 +16,7 @@ class BaseTableCell: UITableViewCell  {
         setup()
     }
 
-    func setup(data: Any?) {}
+    func configure(with data: Any?) {}
     
     func setup() {
         

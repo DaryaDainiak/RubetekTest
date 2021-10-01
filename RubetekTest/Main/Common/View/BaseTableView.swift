@@ -57,7 +57,7 @@ class BaseTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = sections[indexPath.section].items[indexPath.row]
         let cell = dequeueReusableCell(withIdentifier: item.id, for: indexPath) as! BaseTableCell
-        cell.setup(data: item)
+        cell.configure(with: item)
         
         return cell
     }

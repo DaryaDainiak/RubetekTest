@@ -32,7 +32,7 @@ final class ViewController: UIViewController {
     @IBOutlet private var customSegmentedControl: UnderlineSegmentedControl!
     
     @IBOutlet var cameraTableView: CameraTableView!
-    @IBOutlet private var customTableView: UITableView!
+    @IBOutlet private var customTableView: DoorsTableView!
     private let networkService: NetworkServiceProtocol = NetworkService()
     private lazy var dbManager: DataBaseService = RealmService()
     private lazy var repository: CameraRepositoryProtocol = CameraRepository(dbManager: dbManager)
@@ -45,8 +45,7 @@ final class ViewController: UIViewController {
         return refreshControl
     }()
     
-    var dataSource = TableViewDataSource()
-    let doorTableView = DoorsTableView()
+//    var dataSource = TableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +83,7 @@ final class ViewController: UIViewController {
     private func setUpTableView() {
         cameraTableView.isHidden = false
         customTableView.isHidden = true
-        dataSource.tableView = customTableView
+//        dataSource.tableView = customTableView
         
         cameraTableView.goDetails = { [weak self] vc in
             self?.navigationController?.pushViewController(vc, animated: true)
@@ -95,6 +94,8 @@ final class ViewController: UIViewController {
         
         AllData.getData(repository: repository, isRefresh: isRefresh) { [weak self] result in
             self?.refreshControl.endRefreshing()
+            
+           
             switch result {
             case .success(let dataModel):
                 self?.cameraTableView.set(cameras: dataModel.cameras, rooms: dataModel.room)
@@ -109,7 +110,12 @@ final class ViewController: UIViewController {
             self?.refreshControl.endRefreshing()
             switch result {
             case .success(let doors):
-                self?.dataSource.items = doors
+//                self?.dataSource.items = doors
+                
+                let sections = [BaseTableView.Section(name: nil, items: doors.compactMap { BaseTableView.Item(id: $0.name, data: $0) })]
+                
+                self?.customTableView.sections = sections
+                self?.customTableView.reloadData()
             case .failure(let error):
                 self?.showAlert(error: error)
             }
