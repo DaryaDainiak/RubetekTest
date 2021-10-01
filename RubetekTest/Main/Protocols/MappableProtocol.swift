@@ -15,5 +15,4 @@ protocol MappableProtocol {
     
     func mapToPersistenceObject() -> PersistenceType
     static func mapFromPersistenceObject(_ object: PersistenceType) -> Self
-    
 }

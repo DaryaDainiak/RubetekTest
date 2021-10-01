@@ -30,6 +30,9 @@
 		809B0E2D2705F21800676BAB /* DoorsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E2C2705F21800676BAB /* DoorsRepositoryProtocol.swift */; };
 		809B0E312705F39300676BAB /* DoorsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E302705F39300676BAB /* DoorsRepository.swift */; };
 		809B0E352705F69500676BAB /* Door+MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809B0E342705F69500676BAB /* Door+MappableProtocol.swift */; };
+		80AF50A127062328008A103B /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF50A027062328008A103B /* BaseTableView.swift */; };
+		80AF50A42706EDBB008A103B /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF50A32706EDBA008A103B /* BaseTableCell.swift */; };
+		80AF50A72706F0AC008A103B /* DoorsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF50A62706F0AC008A103B /* DoorsTableView.swift */; };
 		80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D19E1226FE0717002783B2 /* NetworkService.swift */; };
 		80D665842702124A00EA8560 /* LableCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D665832702124A00EA8560 /* LableCellView.xib */; };
 		80D6658D270236F100EA8560 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6658C270236F100EA8560 /* Reusable.swift */; };
@@ -74,6 +77,9 @@
 		809B0E2C2705F21800676BAB /* DoorsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		809B0E302705F39300676BAB /* DoorsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsRepository.swift; sourceTree = "<group>"; };
 		809B0E342705F69500676BAB /* Door+MappableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Door+MappableProtocol.swift"; sourceTree = "<group>"; };
+		80AF50A027062328008A103B /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
+		80AF50A32706EDBA008A103B /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		80AF50A62706F0AC008A103B /* DoorsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsTableView.swift; sourceTree = "<group>"; };
 		80D19E1226FE0717002783B2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		80D665832702124A00EA8560 /* LableCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LableCellView.xib; sourceTree = "<group>"; };
 		80D6658C270236F100EA8560 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -154,7 +160,6 @@
 		80553B6226FA6AA700E93D57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				80FD0D7027043E8E00D8BDC1 /* CameraTableView.swift */,
 				80553B4926F9EA9D00E93D57 /* Main.storyboard */,
 				8007F47026FE1B6D00C2BAEF /* CameraCellView.xib */,
 				80D665832702124A00EA8560 /* LableCellView.xib */,
@@ -206,6 +211,17 @@
 				809B0E302705F39300676BAB /* DoorsRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		80AF50A92706F5F9008A103B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80AF50A027062328008A103B /* BaseTableView.swift */,
+				80AF50A32706EDBA008A103B /* BaseTableCell.swift */,
+				80AF50A62706F0AC008A103B /* DoorsTableView.swift */,
+				80FD0D7027043E8E00D8BDC1 /* CameraTableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		80D19E0926FDE2C7002783B2 /* Main */ = {
@@ -262,6 +278,7 @@
 		80D66588270236CD00EA8560 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				80AF50A92706F5F9008A103B /* View */,
 				80D6658C270236F100EA8560 /* Reusable.swift */,
 				80D6658F2702370200EA8560 /* NibLoadable.swift */,
 				80D665922702371A00EA8560 /* TableViewDataSource.swift */,
@@ -439,6 +456,7 @@
 				809B0E242705C0FA00676BAB /* MappableProtocol.swift in Sources */,
 				80D665932702371A00EA8560 /* TableViewDataSource.swift in Sources */,
 				80D665982702383200EA8560 /* UIView+Autolayout.swift in Sources */,
+				80AF50A72706F0AC008A103B /* DoorsTableView.swift in Sources */,
 				80D665902702370200EA8560 /* NibLoadable.swift in Sources */,
 				8007F47B2701CB1D00C2BAEF /* DoorsRealm.swift in Sources */,
 				80FD0DA32705A4A600D8BDC1 /* RealmObject+Storable.swift in Sources */,
@@ -464,8 +482,10 @@
 				80D6658D270236F100EA8560 /* Reusable.swift in Sources */,
 				809B0E2D2705F21800676BAB /* DoorsRepositoryProtocol.swift in Sources */,
 				80D19E1326FE0717002783B2 /* NetworkService.swift in Sources */,
+				80AF50A127062328008A103B /* BaseTableView.swift in Sources */,
 				8007F47E2701DF5700C2BAEF /* Api.swift in Sources */,
 				809B0E352705F69500676BAB /* Door+MappableProtocol.swift in Sources */,
+				80AF50A42706EDBB008A103B /* BaseTableCell.swift in Sources */,
 				8058C11126FB4E0400F1EC8E /* RealmService.swift in Sources */,
 				809B0E1F2705BBDA00676BAB /* CameraRepository.swift in Sources */,
 			);

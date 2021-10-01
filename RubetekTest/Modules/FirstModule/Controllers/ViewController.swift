@@ -46,6 +46,7 @@ final class ViewController: UIViewController {
     }()
     
     var dataSource = TableViewDataSource()
+    let doorTableView = DoorsTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
