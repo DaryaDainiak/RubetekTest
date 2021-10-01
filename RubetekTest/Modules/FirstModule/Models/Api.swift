@@ -40,4 +40,13 @@ enum Api {
             return "GET"
         }
     }
+    
+    func getComponents() -> URLComponents {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = path
+        
+        return components
+    }
 }
