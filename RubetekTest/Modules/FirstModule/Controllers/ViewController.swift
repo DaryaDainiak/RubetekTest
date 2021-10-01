@@ -27,10 +27,8 @@ extension Door: ReusableCellItem {
     }
 }
 
-
 final class ViewController: UIViewController {
-    
-    
+
     @IBOutlet private var customSegmentedControl: UnderlineSegmentedControl!
     
     @IBOutlet var cameraTableView: CameraTableView!

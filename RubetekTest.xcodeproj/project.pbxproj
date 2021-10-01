@@ -49,7 +49,7 @@
 		80553B4A26F9EA9D00E93D57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80553B4C26F9EAA500E93D57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80553B4F26F9EAA500E93D57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		80553B5126F9EAA500E93D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80553B5126F9EAA500E93D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RubetekTest/Main/Support/Info.plist; sourceTree = SOURCE_ROOT; };
 		80553B5E26FA255900E93D57 /* CameraCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCellView.swift; sourceTree = "<group>"; };
 		80553B6726FA6B7100E93D57 /* RoomsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsRealm.swift; sourceTree = "<group>"; };
 		8058C10726FB377000F1EC8E /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
@@ -114,8 +114,6 @@
 			children = (
 				80D19E0926FDE2C7002783B2 /* Main */,
 				80D19E0A26FDE2D1002783B2 /* Modules */,
-				80D19E0B26FDE34E002783B2 /* System */,
-				80D19E0D26FDE51F002783B2 /* Support */,
 			);
 			path = RubetekTest;
 			sourceTree = "<group>";
@@ -177,6 +175,8 @@
 				80D665962702380B00EA8560 /* Extensions */,
 				80D66588270236CD00EA8560 /* Common */,
 				80553B6A26FA6C7000E93D57 /* Services */,
+				80D19E0B26FDE34E002783B2 /* System */,
+				80D19E0D26FDE51F002783B2 /* Support */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -184,9 +184,7 @@
 		80D19E0A26FDE2D1002783B2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				80D19E0C26FDE4F1002783B2 /* Controllers */,
-				80553B6126FA6A9A00E93D57 /* Models */,
-				80553B6226FA6AA700E93D57 /* Views */,
+				80FD0D7B270476A500D8BDC1 /* FirstModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -245,6 +243,16 @@
 				80D665C62703229400EA8560 /* UnderlineSegmentedControl.swift */,
 			);
 			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		80FD0D7B270476A500D8BDC1 /* FirstModule */ = {
+			isa = PBXGroup;
+			children = (
+				80D19E0C26FDE4F1002783B2 /* Controllers */,
+				80553B6126FA6A9A00E93D57 /* Models */,
+				80553B6226FA6AA700E93D57 /* Views */,
+			);
+			path = FirstModule;
 			sourceTree = "<group>";
 		};
 		DFB483EF0BFEB9530DCCD132 /* Frameworks */ = {
@@ -540,7 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/RubetekTest/Support/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RubetekTest/Main/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,7 +567,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/RubetekTest/Support/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/RubetekTest/Main/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
